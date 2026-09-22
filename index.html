@@ -12,28 +12,28 @@
         body { font-family: Arial, sans-serif; background-color: #111; color: white; text-align: center; margin: 0; padding: 10px; user-select: none; }
         h1 { color: #f1c40f; margin: 5px 0; font-size: 26px; text-shadow: 2px 2px #000; }
         
-        .portal-menu { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin: 15px auto; max-width: 400px; }
-        .menu-btn { background: linear-gradient(135deg, #2980b9, #3498db); color: white; border: none; padding: 12px 15px; font-size: 14px; font-weight: bold; border-radius: 8px; cursor: pointer; flex: 1 1 40%; box-shadow: 0 4px #21618c; }
-        .menu-btn:active { transform: translateY(3px); box-shadow: none; }
-        .menu-btn.active { background: linear-gradient(135deg, #27ae60, #2ecc71); box-shadow: 0 4px #1e8449; }
+        .portal-menu { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin: 15px auto; max-width: 400px; }
+        .menu-btn { background: linear-gradient(135deg, #2980b9, #3498db); color: white; border: none; padding: 10px 12px; font-size: 13px; font-weight: bold; border-radius: 8px; cursor: pointer; flex: 1 1 40%; box-shadow: 0 4px #21618c; }
+        .menu-btn.active { background: linear-gradient(135deg, #e67e22, #f39c12); box-shadow: 0 4px #d35400; }
 
         .game-section { display: none; max-width: 400px; margin: 15px auto; background: #222; padding: 15px; border-radius: 12px; border: 2px solid #f1c40f; box-shadow: 0 5px 15px rgba(0,0,0,0.5); }
         .game-section.active { display: block; }
 
+        canvas { background-color: #27ae60; border: 3px solid #f1c40f; border-radius: 8px; max-width: 100%; display: block; margin: 0 auto; }
+        .controls { display: flex; justify-content: center; gap: 15px; margin-top: 15px; }
+        .btn { width: 75px; height: 65px; background-color: #e67e22; color: white; border: none; border-radius: 12px; font-size: 24px; font-weight: bold; cursor: pointer; box-shadow: 0 4px #a04000; }
+        .btn:active { transform: translateY(3px); box-shadow: none; }
+        
+        /* DRAGON VS TIGER STYLES */
         .dvt-board { background: #0b5345; padding: 15px; border-radius: 10px; border: 3px solid #d4ac0d; margin-top: 10px; }
         #dvt-timer { font-size: 32px; font-weight: bold; color: #fff; background: #e74c3c; width: 60px; height: 60px; line-height: 60px; border-radius: 50%; margin: 10px auto; box-shadow: 0 0 10px #e74c3c; }
         .dvt-zones { display: flex; justify-content: space-around; margin: 15px 0; }
         .dvt-card-box { width: 110px; background: rgba(0,0,0,0.5); padding: 10px 5px; border-radius: 8px; border: 2px dashed #fff; }
-        .dvt-card { width: 70px; height: 100px; background: white; color: black; border-radius: 6px; margin: 10px auto; display: flex; align-items: center; justify-content: center; font-size: 30px; font-weight: bold; box-shadow: 0 4px 8px rgba(0,0,0,0.3); }
-        .chip-box { margin: 10px 0; }
-        .dvt-chip { display: inline-block; width: 40px; height: 40px; background: #e67e22; border-radius: 50%; line-height: 40px; font-weight: bold; color: #000; margin: 0 5px; cursor: pointer; border: 2px dashed #fff; }
-        .dvt-chip.active { background: #fff; border-color: #e67e22; transform: scale(1.1); }
+        .dvt-card { width: 70px; height: 100px; background: white; color: black; border-radius: 6px; margin: 10px auto; display: flex; align-items: center; justify-content: center; font-size: 30px; font-weight: bold; }
+        .dvt-chip { display: inline-block; width: 35px; height: 35px; background: #e67e22; border-radius: 50%; line-height: 35px; font-weight: bold; color: #000; margin: 0 5px; cursor: pointer; border: 2px dashed #fff; }
+        .dvt-chip.active { background: #fff; border-color: #e67e22; }
         .dvt-bet-btn { padding: 10px; font-size: 14px; font-weight: bold; border: none; border-radius: 5px; cursor: pointer; color: white; margin: 0 3px; width: 95px; }
-        
-        canvas { background-color: #27ae60; border: 3px solid #f1c40f; border-radius: 8px; max-width: 100%; display: block; margin: 0 auto; }
-        .controls { display: grid; grid-template-columns: repeat(3, 55px); grid-gap: 8px; margin-top: 10px; justify-content: center; }
-        .btn { width: 55px; height: 55px; background-color: #e67e22; color: white; border: none; border-radius: 10px; font-size: 20px; font-weight: bold; cursor: pointer; }
-        
+
         .ad-container { margin: 10px auto; width: 320px; min-height: 50px; display: flex; justify-content: center; align-items: center; background: #000; }
     </style>
 </head>
@@ -47,94 +47,130 @@
         <script src="https://highrevenueformat.com"></script>
     </div>
 
-    <h1>🎮 5-in-1 Game Zone 🌟</h1>
-    <p style="margin: 0; font-weight: bold; color: #f1c40f;">💰 Coins: <span id="global-balance">1000</span></p>
+    <h1>🎮 Kid's Game Portal 🌟</h1>
+    <p style="margin: 0; font-weight: bold; color: #f1c40f;">💰 Portal Coins: <span id="global-balance">1000</span></p>
 
-    <!-- PORTAL MENU -->
+    <!-- PORTAL MENU (Ab pehle number par Car Game hai!) -->
     <div class="portal-menu">
-        <button class="menu-btn active" onclick="switchGame('dvt', this)">🐉 Dragon vs Tiger</button>
+        <button class="menu-btn active" onclick="switchGame('car', this)">🏎️ Car Racing (New)</button>
+        <button class="menu-btn" onclick="switchGame('dvt', this)">🐉 Dragon vs Tiger</button>
         <button class="menu-btn" onclick="switchGame('chhu', this)">🐱 Chhu Mucchhu</button>
         <button class="menu-btn" onclick="switchGame('snake', this)">🐍 Snake Game</button>
-        <button class="menu-btn" onclick="switchGame('ttt', this)">❌ Tic Tac Toe</button>
     </div>
 
-    <!-- 1. DRAGON VS TIGER SECTION -->
-    <div id="game-dvt" class="game-section active">
+    <!-- 1. NEW CAR RACING GAME SECTION -->
+    <div id="game-car" class="game-section active">
+        <h3>🏎️ Highway Car Racing Challenge 🏁</h3>
+        <p style="margin:2px; font-weight:bold;">Score: <span id="car-score" style="color:#f1c40f;">0</span></p>
+        <canvas id="carCanvas" width="300" height="350" style="background:#333; border: 4px solid #f1c40f;"></canvas>
+        <div class="controls">
+            <button class="btn" onclick="moveCar('LEFT')">◀ Left</button>
+            <button class="btn" onclick="initCar()" style="background:#2980b9;">🔄</button>
+            <button class="btn" onclick="moveCar('RIGHT')">Right ▶</button>
+        </div>
+        <p style="font-size:12px; margin-top:5px; color:#aaa;">Bache button daba kar car bachahein aur score banayein!</p>
+    </div>
+
+    <!-- 2. DRAGON VS TIGER SECTION -->
+    <div id="game-dvt" class="game-section">
         <h3>🐉 Dragon vs Tiger: Auto Live Loop 🐯</h3>
         <div id="dvt-status" style="font-weight: bold; color: #5dade2; background: #000; padding: 5px; border-radius: 4px;">Timer chalu hai! Apni bet lagayein.</div>
         <div id="dvt-timer">10</div>
-        
         <div class="dvt-board">
             <div class="dvt-zones">
-                <div class="dvt-card-box" style="border-color: #e74c3c;">
-                    <b style="color: #e74c3c;">DRAGON</b>
-                    <div class="dvt-card" id="d-card">?</div>
-                    <span id="d-bet-text">Bet: 0</span>
-                </div>
-                <div class="dvt-card-box" style="border-color: #3498db;">
-                    <b style="color: #3498db;">TIGER</b>
-                    <div class="dvt-card" id="t-card">?</div>
-                    <span id="t-bet-text">Bet: 0</span>
-                </div>
+                <div class="dvt-card-box" style="border-color: #e74c3c;"><b style="color: #e74c3c;">DRAGON</b><div class="dvt-card" id="d-card">?</div><span id="d-bet-text">Bet: 0</span></div>
+                <div class="dvt-card-box" style="border-color: #3498db;"><b style="color: #3498db;">TIGER</b><div class="dvt-card" id="t-card">?</div><span id="t-bet-text">Bet: 0</span></div>
             </div>
-            
-            <div class="chip-box">
-                Chip: 
-                <span class="dvt-chip active" onclick="selectDvtChip(20, this)">20</span>
-                <span class="dvt-chip" onclick="selectDvtChip(50, this)">50</span>
-                <span class="dvt-chip" onclick="selectDvtChip(100, this)">100</span>
-            </div>
-            
             <button class="dvt-bet-btn" style="background:#e74c3c;" onclick="placeDvtBet('DRAGON')">DRAGON</button>
-            <button class="dvt-bet-btn" style="background:#27ae60;" onclick="placeDvtBet('TIE')">TIE (x9)</button>
             <button class="dvt-bet-btn" style="background:#3498db;" onclick="placeDvtBet('TIGER')">TIGER</button>
-            <p id="tie-bet-text" style="font-size: 12px; margin: 5px 0 0 0;">Tie Bet: 0</p>
         </div>
     </div>
 
-    <!-- 2. CHHU MUCCHHU SECTION -->
+    <!-- 3. CHHU MUCCHHU SECTION -->
     <div id="game-chhu" class="game-section">
         <h3>🐱 Chhu Mucchhu Chase 🐭</h3>
-        <p style="margin:2px;">Score: <span id="chhu-score" style="color:#f1c40f;">0</span> | Level: <span id="chhu-level" style="color:#e74c3c;">1</span></p>
-        <canvas id="chhuCanvas" width="300" height="300" style="background:#27ae60;"></canvas>
-        <div class="controls">
-            <button class="btn" style="visibility:hidden;"></button>
-            <button class="btn" onclick="moveChhu('UP')">▲</button>
-            <button class="btn" style="visibility:hidden;"></button>
-            <button class="btn" onclick="moveChhu('LEFT')">◀</button>
-            <button class="btn" onclick="initChhu()" style="background:#2980b9;">🔄</button>
-            <button class="btn" onclick="moveChhu('RIGHT')">▶</button>
-            <button class="btn" style="visibility:hidden;"></button>
-            <button class="btn" onclick="moveChhu('DOWN')">▼</button>
-        </div>
+        <canvas id="chhuCanvas" width="300" height="300"></canvas>
     </div>
 
-    <!-- 3. SNAKE GAME SECTION -->
+    <!-- 4. SNAKE GAME SECTION -->
     <div id="game-snake" class="game-section">
         <h3>🐍 Classic Saanp Game</h3>
-        <p style="margin:2px;">Score: <span id="snake-score" style="color:#4CAF50;">0</span></p>
-        <canvas id="snakeCanvas" width="300" height="300" style="background:#1a1a1a; border: 3px solid #4CAF50;"></canvas>
-        <div class="controls">
-            <button class="btn" style="visibility:hidden;"></button>
-            <button class="btn" onclick="changeSnakeDir('UP')">▲</button>
-            <button class="btn" style="visibility:hidden;"></button>
-            <button class="btn" onclick="changeSnakeDir('LEFT')">◀</button>
-            <button class="btn" onclick="initSnake()" style="background:#2196F3;">🔄</button>
-            <button class="btn" onclick="changeSnakeDir('RIGHT')">▶</button>
-            <button class="btn" style="visibility:hidden;"></button>
-            <button class="btn" onclick="changeSnakeDir('DOWN')">▼</button>
-        </div>
+        <canvas id="snakeCanvas" width="300" height="300" style="background:#1a1a1a;"></canvas>
     </div>
 
-    <!-- 4. TIC TAC TOE SECTION -->
-    <div id="game-ttt" class="game-section">
-        <h3>❌ Zero Kaata (Tic Tac Toe) ⭕</h3>
-        <p id="ttt-status" style="color:#f1c40f; font-weight:bold;">Aapki Baari (X)</p>
-        <div style="display:grid; grid-template-columns:repeat(3, 70px); justify-content:center; gap:5px; margin:10px 0;">
-            <button id="t0" onclick="playTtt(0)" style="width:70px; height:70px; font-size:28px; background:#333; color:white; border:1px solid #fff; font-weight:bold; border-radius:5px;"></button>
-            <button id="t1" onclick="playTtt(1)" style="width:70px; height:70px; font-size:28px; background:#333; color:white; border:1px solid #fff; font-weight:bold; border-radius:5px;"></button>
-            <button id="t2" onclick="playTtt(2)" style="width:70px; height:70px; font-size:28px; background:#333; color:white; border:1px solid #fff; font-weight:bold; border-radius:5px;"></button>
-            <button id="t3" onclick="playTtt(3)" style="width:70px; height:70px; font-size:28px; background:#333; color:white; border:1px solid #fff; font-weight:bold; border-radius:5px;"></button>
-            <button id="t4" onclick="playTtt(4)" style="width:70px; height:70px; font-size:28px; background:#333; color:white; border:1px solid #fff; font-weight:bold; border-radius:5px;"></button>
-            <button id="t5" onclick="playTtt(5)" style="width:70px; height:70px; font-size:28px; background:#333; color:white; border:1px solid #fff; font-weight:bold; border-radius:5px;"></button>
-            <button id="t6" onclick="playTtt(6)" style="width:70px; height:70px; font-size:28px; background:#333; color:white; border:1px solid #fff; font-weight:bold; border-radius:5px;"></button>
+    <!-- BOTTOM BANNER AD -->
+    <div class="ad-container" style="margin-top:20px;">
+        <script>
+          atOptions = { 'key' : '106fe188147669b3cda5be0e349b22cc', 'format' : 'iframe', 'height' : 50, 'width' : 320, 'params' : {} };
+        </script>
+        <script src="https://highrevenueformat.com"></script>
+    </div>
+
+    <script>
+        let balance = 1000;
+        function updateGlobalBalance() { document.getElementById('global-balance').innerText = balance; }
+
+        function switchGame(gameId, btn) {
+            document.querySelectorAll('.game-section').forEach(sec => sec.classList.remove('active'));
+            document.querySelectorAll('.menu-btn').forEach(b => b.classList.remove('active'));
+            document.getElementById('game-' + gameId).classList.add('active');
+            btn.classList.add('active');
+            if(gameId === 'car') initCar();
+            if(gameId === 'dvt') startDvtTimer();
+        }
+
+        // ==================== 🏎️ NEW CAR RACING GAME CODE ====================
+        const carCanvas = document.getElementById("carCanvas");
+        const carCtx = carCanvas.getContext("2d");
+        
+        let playerCar, enemyCars, carScore, carGameInterval, carSpeed;
+        const carWidth = 35, carHeight = 60;
+
+        function initCar() {
+            playerCar = { x: 130, y: 280 };
+            enemyCars = [];
+            carScore = 0;
+            carSpeed = 4;
+            document.getElementById("car-score").innerText = carScore;
+            if(carGameInterval) clearInterval(carGameInterval);
+            carGameInterval = setInterval(updateCarGame, 1000/40); // 40 FPS Smooth
+            spawnEnemyCar();
+        }
+
+        function spawnEnemyCar() {
+            let lanes =; // 3 Lanes
+            let randomLane = lanes[Math.floor(Math.random() * lanes.length)];
+            enemyCars.push({ x: randomLane, y: -70, color: '#e74c3c' });
+        }
+
+        function moveCar(dir) {
+            if(dir === 'LEFT' && playerCar.x > 30) playerCar.x -= 45;
+            if(dir === 'RIGHT' && playerCar.x < 220) playerCar.x += 45;
+        }
+
+        // Keyboard support for PC players
+        document.addEventListener("keydown", (e) => {
+            if(e.key === "ArrowLeft") moveCar('LEFT');
+            if(e.key === "ArrowRight") moveCar('RIGHT');
+        });
+
+        function updateCarGame() {
+            // Draw Road (Grey Background)
+            carCtx.fillStyle = "#444";
+            carCtx.fillRect(0, 0, carCanvas.width, carCanvas.height);
+            
+            // Draw Road Side Lines (Yellow border lines)
+            carCtx.fillStyle = "#f1c40f";
+            carCtx.fillRect(15, 0, 5, carCanvas.height);
+            carCtx.fillRect(280, 0, 5, carCanvas.height);
+
+            // Draw White Dashed Lane Dividers
+            carCtx.strokeStyle = "#fff";
+            carCtx.setLineDash([20, 20]);
+            carCtx.lineWidth = 3;
+            carCtx.beginPath(); carCtx.moveTo(105, 0); carCtx.lineTo(105, carCanvas.height); carCtx.stroke();
+            carCtx.beginPath(); carCtx.moveTo(195, 0); carCtx.lineTo(195, carCanvas.height); carCtx.stroke();
+
+            // Draw Player Car (Blue Box with yellow lights)
+            carCtx.fillStyle = "#3498db";
+            carCtx.fillRect(playerCar.x, playerCar.y, carWidth, carHeight);
