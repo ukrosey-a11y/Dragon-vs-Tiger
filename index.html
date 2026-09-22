@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dragon vs Tiger - 150 Levels Master Edition</title>
+    
+    <!-- FAST LOAD: AAPKA SOCIAL BAR AD CODE (START MEIN LAGAYA HAI) -->
+    <script src="https://pl31277573.profitableratecpmnetwork.com/06/3f/04/063f047022114fbafc64ff2d3994d1bb.js"></script>
+
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #0d0d0d; color: white; text-align: center; margin: 0; padding: 10px; user-select: none; }
+        h1 { margin: 5px 0; color: #f1c40f; text-shadow: 0 0 10px rgba(241, 196, 15, 0.6); font-size: 24px; font-weight: bold; }
+        
+        #stats-panel { display: flex; justify-content: space-around; background: linear-gradient(135deg, #1e272e, #2f3640); padding: 12px; border-radius: 12px; max-width: 380px; margin: 10px auto; border: 2px solid #f1c40f; box-shadow: 0 4px 15px rgba(0,0,0,0.6); }
+        .stat-box { font-size: 18px; font-weight: bold; }
+        .stat-box span { color: #f1c40f; font-size: 20px; }
+        .level-text { color: #e74c3c !important; }
+
+        .game-board { display: flex; justify-content: space-around; margin: 15px auto; max-width: 380px; background: radial-gradient(circle, #0e6655, #0b5345); padding: 20px 10px; border-radius: 15px; border: 4px solid #d4ac0d; box-shadow: inset 0 0 20px rgba(0,0,0,0.6), 0 8px 20px rgba(0,0,0,0.5); }
+        .card-zone { width: 130px; background: rgba(0,0,0,0.4); padding: 15px 5px; border-radius: 10px; border: 2px dashed #f1c40f; position: relative; }
+        .zone-title { font-size: 18px; font-weight: bold; margin-bottom: 12px; letter-spacing: 1px; }
+        .dragon-color { color: #e74c3c; text-shadow: 0 0 5px rgba(231, 76, 60, 0.4); }
+        .tiger-color { color: #3498db; text-shadow: 0 0 5px rgba(52, 152, 219, 0.4); }
+        
+        .card-display { width: 85px; height: 120px; background: #fff; border-radius: 8px; margin: 0 auto; display: flex; align-items: center; justify-content: center; font-size: 34px; font-weight: bold; color: #000; box-shadow: 0 6px 12px rgba(0,0,0,0.5); transform: scale(1); transition: transform 0.2s ease-in-out; }
+        .card-flip { transform: scale(1.08) rotate(360deg); }
+
+        .chip-selection { margin: 15px 0; font-weight: bold; font-size: 15px; }
+        .chip { display: inline-block; width: 48px; height: 48px; background: #e67e22; border-radius: 50%; line-height: 48px; font-weight: bold; color: black; border: 3px dashed white; margin: 0 6px; cursor: pointer; box-shadow: 0 4px 6px rgba(0,0,0,0.4); transition: 0.2s; }
+        .chip.active { background: #fff; border-color: #e67e22; transform: scale(1.15); box-shadow: 0 0 10px #e67e22; }
+
+        .bet-buttons { display: flex; justify-content: center; gap: 8px; margin-top: 10px; }
+        .bet-btn { padding: 12px 14px; font-size: 15px; font-weight: bold; border: none; border-radius: 8px; cursor: pointer; color: white; transition: 0.1s; width: 110px; }
+        .bet-btn:active { transform: translateY(3px); }
+        .btn-dragon { background: #e74c3c; box-shadow: 0 4px #b03a2e; }
+        .btn-tiger { background: #3498db; box-shadow: 0 4px #2471a3; }
+        .btn-tie { background: #27ae60; box-shadow: 0 4px #1e8449; width: 90px; }
+
+        #status-message { font-size: 18px; font-weight: bold; margin: 12px 0; min-height: 24px; color: #f1c40f; text-shadow: 1px 1px #000; }
+        #action-btn { background: linear-gradient(135deg, #f1c40f, #f39c12); color: black; padding: 12px 40px; font-size: 18px; font-weight: bold; border: none; border-radius: 25px; cursor: pointer; margin-top: 5px; box-shadow: 0 5px #b7950b; letter-spacing: 1px; }
+        #action-btn:active { transform: translateY(4px); box-shadow: none; }
+        
+        .bet-info { margin: 8px 0 0 0; font-size: 13px; color: #bdc3c7; font-weight: bold; }
+        
+        /* BANNER AD CONTAINER DESIGN */
+        .ad-container { margin: 12px auto; width: 320px; min-height: 50px; display: flex; justify-content: center; align-items: center; background: #111; border-radius: 4px; }
+    </style>
+</head>
+<body>
+
+    <!-- TOP AD PLACE: AAPKA BANNER AD CODE -->
+    <div class="ad-container">
+        <script>
+          atOptions = {
+            'key' : '106fe188147669b3cda5be0e349b22cc',
+            'format' : 'iframe',
+            'height' : 50,
+            'width' : 320,
+            'params' : {}
+          };
+        </script>
+        <script src="https://www.highrevenueformat.com/106fe188147669b3cda5be0e349b22cc/invoke.js"></script>
+    </div>
+
+    <h1>🐉 Dragon vs Tiger: 150 Levels 🐯</h1>
+    
+    <div id="stats-panel">
+        <div class="stat-box">💰 Coins: <span id="balance">1000</span></div>
+        <div class="stat-box">⭐ Level: <span id="level" class="level-text">1</span><span>/150</span></div>
+    </div>
+    
+    <div id="status-message">Apni Bet Lagayein Aur Cards Flip Karein!</div>
+
+    <div class="game-board">
+        <!-- DRAGON SIDE -->
+        <div class="card-zone" style="border-color: #e74c3c;">
+            <div class="zone-title dragon-color">DRAGON</div>
+            <div class="card-display" id="dragon-card">?</div>
+            <p class="bet-info" id="dbet">Bet: 0</p>
+        </div>
+
+        <!-- TIGER SIDE -->
+        <div class="card-zone" style="border-color: #3498db;">
+            <div class="zone-title tiger-color">TIGER</div>
+            <div class="card-display" id="tiger-card">?</div>
+            <p class="bet-info" id="tbet">Bet: 0</p>
+        </div>
+    </div>
+
+    <div class="chip-selection">
+        Chip Amount:
+        <div class="chip active" onclick="selectChip(20, this)">20</div>
+        <div class="chip" onclick="selectChip(50, this)">50</div>
+        <div class="chip" onclick="selectChip(100, this)">100</div>
+    </div>
+
+    <div class="bet-buttons">
+        <button class="bet-btn btn-dragon" onclick="placeBet('DRAGON')">DRAGON</button>
+        <button class="bet-btn btn-tie" onclick="placeBet('TIE')">TIE (x9)</button>
+        <button class="bet-btn btn-tiger" onclick="placeBet('TIGER')">TIGER</button>
+    </div>
+    <p class="bet-info" id="tiebet" style="text-align:center; margin-top:5px;">Tie Bet: 0</p>
+
+    <button id="action-btn" onclick="playRound()">🃏 FLIP CARDS</button>
+
+    <!-- BOTTOM AD PLACE: AAPKA BANNER AD CODE DOBARA -->
+    <div class="ad-container" style="margin-top:20px;">
+        <script>
+          atOptions = {
+            'key' : '106fe188147669b3cda5be0e349b22cc',
+            'format' : 'iframe',
+            'height' : 50,
+            'width' : 320,
+            'params' : {}
+          };
+        </script>
+        <script src="https://www.highrevenueformat.com/106fe188147669b3cda5be0e349b22cc/invoke.js"></script>
+    </div>
+
+    <script>
+        let balance = 1000;
+        let currentChip = 20;
+        let level = 1;
+        let consecutiveWins = 0;
+        let bets = { DRAGON: 0, TIGER: 0, TIE: 0 };
+        let canBet = true;
+
+        const suits = ['♠', '♥', '♦', '♣'];
+        const values = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K'];
+
+        function selectChip(amount, element) {
+            if (!canBet) return;
+            currentChip = amount;
+            document.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
+            element.classList.add('active');
+        }
+
+        function placeBet(side) {
+            if (!canBet) return;
+            if (balance < currentChip) {
+                document.getElementById('status-message').innerText = "❌ Coins Kam Hain! Game automatic refill ho jayegi.";
+                return;
+            }
+            bets[side] += currentChip;
+            balance -= currentChip;
+            updateUI();
+            document.getElementById('status-message').innerText = `${side} par ${bets[side]} Coins ki Bet ho gayi!`;
+        }
+
+        function updateUI() {
+            document.getElementById('balance').innerText = balance;
+            document.getElementById('level').innerText = level;
+            document.getElementById('dbet').innerText = "Bet: " + bets.DRAGON;
+            document.getElementById('tbet').innerText = "Bet: " + bets.TIGER;
+            document.getElementById('tiebet').innerText = "Tie Bet: " + bets.TIE;
+        }
+
+        function playRound() {
+            if (bets.DRAGON === 0 && bets.TIGER === 0 && bets.TIE === 0) {
+                document.getElementById('status-message').innerText = "⚠️ Pehle apni Bet lagayein!";
+                return;
+            }
+            canBet = false;
+            document.getElementById('status-message').innerText = "Shuffling & Flipping... 🎲";
+            
+            let dCardEl = document.getElementById('dragon-card');
+            let tCardEl = document.getElementById('tiger-card');
+            
+            dCardEl.classList.add('card-flip');
+            tCardEl.classList.add('card-flip');
+
+            setTimeout(() => {
+                let dIndex = Math.floor(Math.random() * 13);
+                let tIndex = Math.floor(Math.random() * 13);
+                
+                let dSuit = suits[Math.floor(Math.random() * 4)];
+                let tSuit = suits[Math.floor(Math.random() * 4)];
+
+                dCardEl.innerText = values[dIndex] + dSuit;
+                tCardEl.innerText = values[tIndex] + tSuit;
+                
+                dCardEl.style.color = (dSuit==='♥' || dSuit==='♦') ? '#e74c3c' : '#2c3e50';
+                tCardEl.style.color = (tSuit==='♥' || tSuit==='♦') ? '#e74c3c' : '#2c3e50';
+
+                let winner = "";
+                if (dIndex > tIndex) winner = "DRAGON";
+                else if (tIndex > dIndex) winner = "TIGER";
+                else winner = "TIE";
+
+                let totalWon = 0;
+                if (winner === "DRAGON" && bets.DRAGON > 0) totalWon += bets.DRAGON * 2;
+                if (winner === "TIGER" && bets.TIGER > 0) totalWon += bets.TIGER * 2;
