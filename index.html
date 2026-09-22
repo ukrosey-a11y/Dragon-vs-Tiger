@@ -3,55 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dragon vs Tiger - Real Live Audio Edition</title>
+    <title>5-in-1 Mega Game Zone</title>
     
-    <!-- SOCIAL BAR AD (FAST LOAD AT TOP) -->
+    <!-- ADSTERRA SOCIAL BAR CODE -->
     <script src="https://pl31277573.profitableratecpmnetwork.com/06/3f/04/063f047022114fbafc64ff2d3994d1bb.js"></script>
 
     <style>
-        body { font-family: 'Segoe UI', Arial, sans-serif; background-color: #080808; color: white; text-align: center; margin: 0; padding: 10px; user-select: none; }
+        body { font-family: Arial, sans-serif; background-color: #111; color: white; text-align: center; margin: 0; padding: 10px; user-select: none; }
+        h1 { color: #f1c40f; margin: 5px 0; font-size: 26px; text-shadow: 2px 2px #000; }
         
-        .casino-wrapper {
-            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://githubusercontent.com') no-repeat center center;
-            background-size: cover;
-            max-width: 420px;
-            margin: 0 auto;
-            border-radius: 20px;
-            padding: 15px 10px;
-            border: 4px solid #f1c40f;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.9);
-        }
+        /* Menu Buttons Style */
+        .portal-menu { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin: 15px auto; max-width: 400px; }
+        .menu-btn { background: linear-gradient(135deg, #2980b9, #3498db); color: white; border: none; padding: 12px 15px; font-size: 14px; font-weight: bold; border-radius: 8px; cursor: pointer; flex: 1 1 40%; box-shadow: 0 4px #21618c; }
+        .menu-btn:active { transform: translateY(3px); box-shadow: none; }
+        .menu-btn.active { background: linear-gradient(135deg, #27ae60, #2ecc71); box-shadow: 0 4px #1e8449; }
 
-        h1 { margin: 5px 0; color: #f1c40f; text-shadow: 2px 2px #000; font-size: 24px; font-weight: bold; }
+        .game-section { display: none; max-width: 400px; margin: 15px auto; background: #222; padding: 15px; border-radius: 12px; border: 2px solid #f1c40f; box-shadow: 0 5px 15px rgba(0,0,0,0.5); }
+        .game-section.active { display: block; }
+
+        /* --- DRAGON VS TIGER STYLES --- */
+        .dvt-board { background: #0b5345; padding: 15px; border-radius: 10px; border: 3px solid #d4ac0d; margin-top: 10px; }
+        #dvt-timer { font-size: 32px; font-weight: bold; color: #fff; background: #e74c3c; width: 60px; height: 60px; line-height: 60px; border-radius: 50%; margin: 10px auto; box-shadow: 0 0 10px #e74c3c; }
+        .dvt-zones { display: flex; justify-content: space-around; margin: 15px 0; }
+        .dvt-card-box { width: 110px; background: rgba(0,0,0,0.5); padding: 10px 5px; border-radius: 8px; border: 2px dashed #fff; }
+        .dvt-card { width: 70px; height: 100px; background: white; color: black; border-radius: 6px; margin: 10px auto; display: flex; align-items: center; justify-content: center; font-size: 30px; font-weight: bold; box-shadow: 0 4px 8px rgba(0,0,0,0.3); }
+        .chip-box { margin: 10px 0; }
+        .dvt-chip { display: inline-block; width: 40px; height: 40px; background: #e67e22; border-radius: 50%; line-height: 40px; font-weight: bold; color: #000; margin: 0 5px; cursor: pointer; border: 2px dashed #fff; }
+        .dvt-chip.active { background: #fff; border-color: #e67e22; transform: scale(1.1); }
+        .dvt-bet-btn { padding: 10px; font-size: 14px; font-weight: bold; border: none; border-radius: 5px; cursor: pointer; color: white; margin: 0 3px; width: 95px; }
         
-        #stats-panel { display: flex; justify-content: space-around; background: rgba(30, 39, 46, 0.9); padding: 10px; border-radius: 12px; margin: 10px auto; border: 1px solid #f1c40f; }
-        .stat-box { font-size: 16px; font-weight: bold; }
-        .stat-box span { color: #f1c40f; }
-
-        #timer-box { font-size: 38px; color: #fff; font-weight: bold; margin: 10px auto; background: radial-gradient(#e74c3c, #c0392b); width: 85px; height: 85px; line-height: 85px; border-radius: 50%; border: 4px solid #fff; box-shadow: 0 0 20px #e74c3c; text-shadow: 2px 2px #000; transition: all 0.3s; }
-        #status-message { font-size: 15px; font-weight: bold; margin: 10px 0; min-height: 24px; color: #fff; background: rgba(0,0,0,0.8); padding: 8px; border-radius: 5px; border-left: 4px solid #f1c40f; }
-
-        .game-board { display: flex; justify-content: space-around; margin: 15px auto; background: rgba(20, 143, 119, 0.85); padding: 25px 10px; border-radius: 15px; border: 3px solid #d4ac0d; box-shadow: inset 0 0 20px rgba(0,0,0,0.7); }
-        .card-zone { width: 135px; background: rgba(0,0,0,0.7); padding: 15px 5px; border-radius: 10px; border: 2px dashed #f1c40f; }
-        .zone-title { font-size: 18px; font-weight: bold; margin-bottom: 12px; text-shadow: 1px 1px #000; letter-spacing: 1px; }
-        .dragon-color { color: #ff4d4d; }
-        .tiger-color { color: #3399ff; }
+        /* --- CHHU MUCCHHU CANVAS --- */
+        canvas { background-color: #27ae60; border: 3px solid #f1c40f; border-radius: 8px; max-width: 100%; display: block; margin: 0 auto; }
+        .controls { display: grid; grid-template-columns: repeat(3, 55px); grid-gap: 8px; margin-top: 10px; justify-content: center; }
+        .btn { width: 55px; height: 55px; background-color: #e67e22; color: white; border: none; border-radius: 10px; font-size: 20px; font-weight: bold; cursor: pointer; }
         
-        .card-display { width: 85px; height: 120px; background: #fff; border-radius: 8px; margin: 0 auto; display: flex; align-items: center; justify-content: center; font-size: 34px; font-weight: bold; color: #000; box-shadow: 0 6px 12px rgba(0,0,0,0.6); transition: transform 0.4s ease; }
-        .card-flip { transform: rotateY(180deg) scale(1.05); background-color: #f1c40f !important; }
-
-        .chip-selection { margin: 15px 0; font-weight: bold; font-size: 14px; background: rgba(0,0,0,0.7); padding: 8px; border-radius: 8px; }
-        .chip { display: inline-block; width: 44px; height: 44px; background: #e67e22; border-radius: 50%; line-height: 44px; font-weight: bold; color: black; border: 2px dashed white; margin: 0 5px; cursor: pointer; box-shadow: 0 4px #a04000; font-size: 14px; }
-        .chip.active { background: #fff; border-color: #e67e22; transform: scale(1.1); box-shadow: 0 0 10px #e67e22; }
-
-        .bet-buttons { display: flex; justify-content: center; gap: 8px; margin-top: 10px; }
-        .bet-btn { padding: 12px 10px; font-size: 14px; font-weight: bold; border: none; border-radius: 8px; cursor: pointer; color: white; width: 110px; text-shadow: 1px 1px #000; box-shadow: 0 4px rgba(0,0,0,0.4); }
-        .btn-dragon { background: #e74c3c; }
-        .btn-tiger { background: #3498db; }
-        .btn-tie { background: #27ae60; width: 85px; }
-        
-        .bet-info { margin: 8px 0 0 0; font-size: 13px; color: #fff; font-weight: bold; text-shadow: 1px 1px #000; }
-        .ad-container { margin: 12px auto; width: 320px; min-height: 50px; display: flex; justify-content: center; align-items: center; background: #111; }
+        .ad-container { margin: 10px auto; width: 320px; min-height: 50px; display: flex; justify-content: center; align-items: center; background: #000; }
     </style>
 </head>
 <body>
@@ -64,130 +50,93 @@
         <script src="https://www.highrevenueformat.com/106fe188147669b3cda5be0e349b22cc/invoke.js"></script>
     </div>
 
-    <!-- CASINO WRAPPER -->
-    <div class="casino-wrapper">
-        <h1>🐉 Dragon vs Tiger: Live Voice 🐯</h1>
-        
-        <div id="stats-panel">
-            <div class="stat-box">💰 Coins: <span id="balance">1000</span></div>
-            <div class="stat-box">⭐ Level: <span id="level">1</span>/150</div>
-        </div>
-        
-        <!-- AUTO START 10s TIMER -->
-        <div id="timer-box">10</div>
-        <div id="status-message">🔊 Audio On Hai! Apni Bet Lagayein, Timer Auto Chalu Hai!</div>
+    <h1>🎮 5-in-1 Game Zone 🌟</h1>
+    <p style="margin: 0; font-weight: bold; color: #f1c40f;">💰 Coins: <span id="global-balance">1000</span></p>
 
-        <div class="game-board">
-            <!-- DRAGON SIDE -->
-            <div class="card-zone" style="border-color: #e74c3c;">
-                <div class="zone-title dragon-color">DRAGON</div>
-                <div class="card-display" id="dragon-card">?</div>
-                <p class="bet-info" id="dbet">Bet: 0</p>
-            </div>
-
-            <!-- TIGER SIDE -->
-            <div class="card-zone" style="border-color: #3498db;">
-                <div class="zone-title tiger-color">TIGER</div>
-                <div class="card-display" id="tiger-card">?</div>
-                <p class="bet-info" id="tbet">Bet: 0</p>
-            </div>
-        </div>
-
-        <div class="chip-selection">
-            Chip Value:
-            <button class="chip active" onclick="selectChip(20, this)">20</button>
-            <button class="chip" onclick="selectChip(50, this)">50</button>
-            <button class="chip" onclick="selectChip(100, this)">100</button>
-        </div>
-
-        <div class="bet-buttons">
-            <button class="bet-btn btn-dragon" onclick="placeBet('DRAGON')">DRAGON</button>
-            <button class="bet-btn btn-tie" onclick="placeBet('TIE')">TIE (x9)</button>
-            <button class="bet-btn btn-tiger" onclick="placeBet('TIGER')">TIGER</button>
-        </div>
-        <p class="bet-info" id="tiebet" style="text-align:center; margin-top:5px; color:#27ae60;">Tie Bet: 0</p>
+    <!-- PORTAL MENU -->
+    <div class="portal-menu">
+        <button class="menu-btn active" onclick="switchGame('dvt', this)">🐉 Dragon vs Tiger</button>
+        <button class="menu-btn" onclick="switchGame('chhu', this)">🐱 Chhu Mucchhu</button>
+        <button class="menu-btn" onclick="switchGame('snake', this)">🐍 Snake Game</button>
+        <button class="menu-btn" onclick="switchGame('ttt', this)">❌ Tic Tac Toe</button>
     </div>
 
-    <!-- BOTTOM BANNER AD -->
-    <div class="ad-container" style="margin-top:20px;">
-        <script>
-          atOptions = { 'key' : '106fe188147669b3cda5be0e349b22cc', 'format' : 'iframe', 'height' : 50, 'width' : 320, 'params' : {} };
-        </script>
-        <script src="https://www.highrevenueformat.com/106fe188147669b3cda5be0e349b22cc/invoke.js"></script>
-    </div>
-
-    <script>
-        let balance = 1000;
-        let currentChip = 20;
-        let level = 1;
-        let consecutiveWins = 0;
-        let bets = { DRAGON: 0, TIGER: 0, TIE: 0 };
-        let state = "BETTING"; // BETTING, REVEAL
-        let timeLeft = 10;
-        let timerInterval;
-
-        const suits = ['♠', '♥', '♦', '♣'];
-        const values = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K'];
-
-        // Web Audio API for synthetic sounds
-        const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-        function playTone(freq, type, duration) {
-            try {
-                let osc = audioCtx.createOscillator();
-                let gain = audioCtx.createGain();
-                osc.type = type;
-                osc.frequency.value = freq;
-                gain.gain.setValueAtTime(0.1, audioCtx.currentTime);
-                gain.gain.exponentialRampToValueAtTime(0.00001, audioCtx.currentTime + duration);
-                osc.connect(gain);
-                gain.connect(audioCtx.destination);
-                osc.start();
-                osc.stop(audioCtx.currentTime + duration);
-            } catch(e){}
-        }
-
-        // Live Speech Function (Computer Bolay Ga)
-        function speak(text) {
-            if ('speechSynthesis' in window) {
-                let utterance = new SpeechSynthesisUtterance(text);
-                utterance.lang = 'en-US';
-                utterance.rate = 1.0;
-                window.speechSynthesis.speak(utterance);
-            }
-        }
-
-        function selectChip(amount, element) {
-            if (state !== "BETTING") return;
-            currentChip = amount;
-            playTone(600, 'sine', 0.1);
-            document.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
-            element.classList.add('active');
-        }
-
-        function placeBet(side) {
-            if (state !== "BETTING") return;
-            if (balance < currentChip) {
-                document.getElementById('status-message').innerText = "❌ Coins Kam Hain!";
-                speak("Not enough coins");
-                return;
-            }
-            bets[side] += currentChip;
-            balance -= currentChip;
-            playTone(800, 'triangle', 0.15);
-            updateUI();
-            document.getElementById('status-message').innerText = `${side} Par Bet Lag Gayi!`;
-        }
-
-        function updateUI() {
-            document.getElementById('balance').innerText = balance;
-            document.getElementById('level').innerText = level;
-            document.getElementById('dbet').innerText = "Bet: " + bets.DRAGON;
-            document.getElementById('tbet').innerText = "Bet: " + bets.TIGER;
-            document.getElementById('tiebet').innerText = "Tie Bet: " + bets.TIE;
-        }
-
-        function startAutoTimer() {
-            timeLeft = 10;
-            document.getElementById('timer-box').innerText = timeLeft;
-            document.getElementById('timer-box').style.background = "radial-gradient(#e74c3c, #c0392b)";
+    <!-- 1. DRAGON VS TIGER SECTION -->
+    <div id="game-dvt" class="game-section active">
+        <h3>🐉 Dragon vs Tiger: Real Live 🐯</h3>
+        <div id="dvt-status" style="font-weight: bold; color: #5dade2; background: #000; padding: 5px; border-radius: 4px;">Bet lagayein, timer automatic shuru hoga!</div>
+        <div id="dvt-timer">10</div>
+        
+        <div class="dvt-board">
+            <div class="dvt-zones">
+                <div class="dvt-card-box" style="border-color: #e74c3c;">
+                    <b style="color: #e74c3c;">DRAGON</b>
+                    <div class="dvt-card" id="d-card">?</div>
+                    <span id="d-bet-text">Bet: 0</span>
+                </div>
+                <div class="dvt-card-box" style="border-color: #3498db;">
+                    <b style="color: #3498db;">TIGER</b>
+                    <div class="dvt-card" id="t-card">?</div>
+                    <span id="t-bet-text">Bet: 0</span>
+                </div>
+            </div>
             
+            <div class="chip-box">
+                Chip: 
+                <span class="dvt-chip active" onclick="selectDvtChip(20, this)">20</span>
+                <span class="dvt-chip" onclick="selectDvtChip(50, this)">50</span>
+                <span class="dvt-chip" onclick="selectDvtChip(100, this)">100</span>
+            </div>
+            
+            <button class="dvt-bet-btn" style="background:#e74c3c;" onclick="placeDvtBet('DRAGON')">DRAGON</button>
+            <button class="dvt-bet-btn" style="background:#27ae60;" onclick="placeDvtBet('TIE')">TIE (x9)</button>
+            <button class="dvt-bet-btn" style="background:#3498db;" onclick="placeDvtBet('TIGER')">TIGER</button>
+            <p id="tie-bet-text" style="font-size: 12px; margin: 5px 0 0 0;">Tie Bet: 0</p>
+        </div>
+    </div>
+
+    <!-- 2. CHHU MUCCHHU SECTION -->
+    <div id="game-chhu" class="game-section">
+        <h3>🐱 Chhu Mucchhu Chase 🐭</h3>
+        <p style="margin:2px;">Score: <span id="chhu-score" style="color:#f1c40f;">0</span> | Level: <span id="chhu-level" style="color:#e74c3c;">1</span></p>
+        <canvas id="chhuCanvas" width="300" height="300" style="background:#27ae60;"></canvas>
+        <div class="controls">
+            <button class="btn" style="visibility:hidden;"></button>
+            <button class="btn" onclick="moveChhu('UP')">▲</button>
+            <button class="btn" style="visibility:hidden;"></button>
+            <button class="btn" onclick="moveChhu('LEFT')">◀</button>
+            <button class="btn" onclick="initChhu()" style="background:#2980b9;">🔄</button>
+            <button class="btn" onclick="moveChhu('RIGHT')">▶</button>
+            <button class="btn" style="visibility:hidden;"></button>
+            <button class="btn" onclick="moveChhu('DOWN')">▼</button>
+        </div>
+    </div>
+
+    <!-- 3. SNAKE GAME SECTION -->
+    <div id="game-snake" class="game-section">
+        <h3>🐍 Classic Saanp Game</h3>
+        <p style="margin:2px;">Score: <span id="snake-score" style="color:#4CAF50;">0</span></p>
+        <canvas id="snakeCanvas" width="300" height="300" style="background:#1a1a1a; border: 3px solid #4CAF50;"></canvas>
+        <div class="controls">
+            <button class="btn" style="visibility:hidden;"></button>
+            <button class="btn" onclick="changeSnakeDir('UP')">▲</button>
+            <button class="btn" style="visibility:hidden;"></button>
+            <button class="btn" onclick="changeSnakeDir('LEFT')">◀</button>
+            <button class="btn" onclick="initSnake()" style="background:#2196F3;">🔄</button>
+            <button class="btn" onclick="changeSnakeDir('RIGHT')">▶</button>
+            <button class="btn" style="visibility:hidden;"></button>
+            <button class="btn" onclick="changeSnakeDir('DOWN')">▼</button>
+        </div>
+    </div>
+
+    <!-- 4. TIC TAC TOE SECTION -->
+    <div id="game-ttt" class="game-section">
+        <h3>❌ Zero Kaata (Tic Tac Toe) ⭕</h3>
+        <p id="ttt-status" style="color:#f1c40f; font-weight:bold;">Aapki Baari (X)</p>
+        <div style="display:grid; grid-template-columns:repeat(3, 70px); justify-content:center; gap:5px; margin:10px 0;">
+            <button id="t0" onclick="playTtt(0)" style="width:70px; height:70px; font-size:28px; background:#333; color:white; border:1px solid #fff; font-weight:bold; border-radius:5px;"></button>
+            <button id="t1" onclick="playTtt(1)" style="width:70px; height:70px; font-size:28px; background:#333; color:white; border:1px solid #fff; font-weight:bold; border-radius:5px;"></button>
+            <button id="t2" onclick="playTtt(2)" style="width:70px; height:70px; font-size:28px; background:#333; color:white; border:1px solid #fff; font-weight:bold; border-radius:5px;"></button>
+            <button id="t3" onclick="playTtt(3)" style="width:70px; height:70px; font-size:28px; background:#333; color:white; border:1px solid #fff; font-weight:bold; border-radius:5px;"></button>
+            <button id="t4" onclick="playTtt(4)" style="width:70px; height:70px; font-size:28px; background:#333; color:white; border:1px solid #fff; font-weight:bold; border-radius:5px;"></button>
+            <button id="t5" onclick="playTtt(5)" style="width:70px; height:70px; font-size:28px; background:#333; color:white; border:1px solid #fff; font-weight:bold; border-radius:5px;"></button>
