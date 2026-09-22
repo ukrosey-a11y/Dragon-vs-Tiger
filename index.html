@@ -3,64 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dragon vs Tiger - Real Casino Edition</title>
+    <title>Dragon vs Tiger - Real Live Audio Edition</title>
     
-    <!-- SOCIAL BAR AD -->
-    <script src="https://profitableratecpmnetwork.com"></script>
+    <!-- SOCIAL BAR AD (FAST LOAD AT TOP) -->
+    <script src="https://pl31277573.profitableratecpmnetwork.com/06/3f/04/063f047022114fbafc64ff2d3994d1bb.js"></script>
 
     <style>
-        body { font-family: 'Segoe UI', Arial, sans-serif; background-color: #0d0d0d; color: white; text-align: center; margin: 0; padding: 10px; user-select: none; }
+        body { font-family: 'Segoe UI', Arial, sans-serif; background-color: #080808; color: white; text-align: center; margin: 0; padding: 10px; user-select: none; }
         
-        /* REAL CASINO GRAPHIC BACKGROUND CONTAINER */
         .casino-wrapper {
-            background-image: url('https://unsplash.com'); /* Fallback theme */
-            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://githubusercontent.com') no-repeat center center;
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://githubusercontent.com') no-repeat center center;
             background-size: cover;
             max-width: 420px;
             margin: 0 auto;
             border-radius: 20px;
             padding: 15px 10px;
             border: 4px solid #f1c40f;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.8);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.9);
         }
 
         h1 { margin: 5px 0; color: #f1c40f; text-shadow: 2px 2px #000; font-size: 24px; font-weight: bold; }
         
-        #stats-panel { display: flex; justify-content: space-around; background: rgba(47, 54, 64, 0.9); padding: 10px; border-radius: 12px; margin: 10px auto; border: 1px solid #f1c40f; }
+        #stats-panel { display: flex; justify-content: space-around; background: rgba(30, 39, 46, 0.9); padding: 10px; border-radius: 12px; margin: 10px auto; border: 1px solid #f1c40f; }
         .stat-box { font-size: 16px; font-weight: bold; }
         .stat-box span { color: #f1c40f; }
 
-        /* LIVE TIMER DESIGN */
-        #timer-box { font-size: 36px; color: #fff; font-weight: bold; margin: 10px auto; background: radial-gradient(#e74c3c, #b03a2e); width: 80px; height: 80px; line-height: 80px; border-radius: 50%; border: 3px solid #fff; box-shadow: 0 0 15px #e74c3c; text-shadow: 2px 2px #000; }
-        #status-message { font-size: 16px; font-weight: bold; margin: 10px 0; min-height: 24px; color: #fff; background: rgba(0,0,0,0.7); padding: 6px; border-radius: 5px; }
+        #timer-box { font-size: 38px; color: #fff; font-weight: bold; margin: 10px auto; background: radial-gradient(#e74c3c, #c0392b); width: 85px; height: 85px; line-height: 85px; border-radius: 50%; border: 4px solid #fff; box-shadow: 0 0 20px #e74c3c; text-shadow: 2px 2px #000; transition: all 0.3s; }
+        #status-message { font-size: 15px; font-weight: bold; margin: 10px 0; min-height: 24px; color: #fff; background: rgba(0,0,0,0.8); padding: 8px; border-radius: 5px; border-left: 4px solid #f1c40f; }
 
-        .game-board { display: flex; justify-content: space-around; margin: 15px auto; background: rgba(11, 83, 69, 0.85); padding: 25px 10px; border-radius: 15px; border: 2px solid #d4ac0d; box-shadow: inset 0 0 15px rgba(0,0,0,0.6); }
-        .card-zone { width: 130px; background: rgba(0,0,0,0.6); padding: 15px 5px; border-radius: 10px; border: 2px dashed #f1c40f; position: relative; }
-        .zone-title { font-size: 18px; font-weight: bold; margin-bottom: 12px; text-shadow: 1px 1px #000; }
+        .game-board { display: flex; justify-content: space-around; margin: 15px auto; background: rgba(20, 143, 119, 0.85); padding: 25px 10px; border-radius: 15px; border: 3px solid #d4ac0d; box-shadow: inset 0 0 20px rgba(0,0,0,0.7); }
+        .card-zone { width: 135px; background: rgba(0,0,0,0.7); padding: 15px 5px; border-radius: 10px; border: 2px dashed #f1c40f; }
+        .zone-title { font-size: 18px; font-weight: bold; margin-bottom: 12px; text-shadow: 1px 1px #000; letter-spacing: 1px; }
         .dragon-color { color: #ff4d4d; }
         .tiger-color { color: #3399ff; }
         
-        .card-display { width: 85px; height: 120px; background: #fff; border-radius: 8px; margin: 0 auto; display: flex; align-items: center; justify-content: center; font-size: 34px; font-weight: bold; color: #000; box-shadow: 0 6px 12px rgba(0,0,0,0.5); transform: scale(1); transition: transform 0.4s ease; }
-        .card-flip { transform: scale(1.1) rotateY(180deg); background-color: #f1c40f !important; }
+        .card-display { width: 85px; height: 120px; background: #fff; border-radius: 8px; margin: 0 auto; display: flex; align-items: center; justify-content: center; font-size: 34px; font-weight: bold; color: #000; box-shadow: 0 6px 12px rgba(0,0,0,0.6); transition: transform 0.4s ease; }
+        .card-flip { transform: rotateY(180deg) scale(1.05); background-color: #f1c40f !important; }
 
-        .chip-selection { margin: 15px 0; font-weight: bold; font-size: 14px; background: rgba(0,0,0,0.6); padding: 8px; border-radius: 8px; }
-        .chip { display: inline-block; width: 44px; height: 44px; background: #e67e22; border-radius: 50%; line-height: 44px; font-weight: bold; color: black; border: 2px dashed white; margin: 0 5px; cursor: pointer; box-shadow: 0 4px #a04000; }
-        .chip.active { background: #fff; border-color: #e67e22; transform: scale(1.1); box-shadow: 0 0 8px #e67e22; }
+        .chip-selection { margin: 15px 0; font-weight: bold; font-size: 14px; background: rgba(0,0,0,0.7); padding: 8px; border-radius: 8px; }
+        .chip { display: inline-block; width: 44px; height: 44px; background: #e67e22; border-radius: 50%; line-height: 44px; font-weight: bold; color: black; border: 2px dashed white; margin: 0 5px; cursor: pointer; box-shadow: 0 4px #a04000; font-size: 14px; }
+        .chip.active { background: #fff; border-color: #e67e22; transform: scale(1.1); box-shadow: 0 0 10px #e67e22; }
 
         .bet-buttons { display: flex; justify-content: center; gap: 8px; margin-top: 10px; }
-        .bet-btn { padding: 12px 10px; font-size: 14px; font-weight: bold; border: none; border-radius: 8px; cursor: pointer; color: white; width: 110px; text-shadow: 1px 1px #000; }
-        .btn-dragon { background: #e74c3c; box-shadow: 0 4px #b03a2e; }
-        .btn-tiger { background: #3498db; box-shadow: 0 4px #2471a3; }
-        .btn-tie { background: #27ae60; box-shadow: 0 4px #1e8449; width: 85px; }
-        .bet-btn:disabled, .chip:disabled { opacity: 0.5; cursor: not-allowed; }
-
+        .bet-btn { padding: 12px 10px; font-size: 14px; font-weight: bold; border: none; border-radius: 8px; cursor: pointer; color: white; width: 110px; text-shadow: 1px 1px #000; box-shadow: 0 4px rgba(0,0,0,0.4); }
+        .btn-dragon { background: #e74c3c; }
+        .btn-tiger { background: #3498db; }
+        .btn-tie { background: #27ae60; width: 85px; }
+        
         .bet-info { margin: 8px 0 0 0; font-size: 13px; color: #fff; font-weight: bold; text-shadow: 1px 1px #000; }
         .ad-container { margin: 12px auto; width: 320px; min-height: 50px; display: flex; justify-content: center; align-items: center; background: #111; }
     </style>
 </head>
 <body>
 
-    <!-- TOP AD PLACE (Adsterra Code) -->
+    <!-- TOP BANNER AD -->
     <div class="ad-container">
         <script>
           atOptions = { 'key' : '106fe188147669b3cda5be0e349b22cc', 'format' : 'iframe', 'height' : 50, 'width' : 320, 'params' : {} };
@@ -68,28 +64,28 @@
         <script src="https://www.highrevenueformat.com/106fe188147669b3cda5be0e349b22cc/invoke.js"></script>
     </div>
 
-    <!-- MAIN CASINO SCREEN WRAPPER -->
+    <!-- CASINO WRAPPER -->
     <div class="casino-wrapper">
-        <h1>🐉 Dragon vs Tiger: Pro 🐯</h1>
+        <h1>🐉 Dragon vs Tiger: Live Voice 🐯</h1>
         
         <div id="stats-panel">
             <div class="stat-box">💰 Coins: <span id="balance">1000</span></div>
             <div class="stat-box">⭐ Level: <span id="level">1</span>/150</div>
         </div>
         
-        <!-- COUNTDOWN TIMER WHEEL -->
+        <!-- AUTO START 10s TIMER -->
         <div id="timer-box">10</div>
-        <div id="status-message">👉 Pehle Bet Lagayein, Timer Auto Shuru Hoga!</div>
+        <div id="status-message">🔊 Audio On Hai! Apni Bet Lagayein, Timer Auto Chalu Hai!</div>
 
         <div class="game-board">
-            <!-- DRAGON ZONE -->
+            <!-- DRAGON SIDE -->
             <div class="card-zone" style="border-color: #e74c3c;">
                 <div class="zone-title dragon-color">DRAGON</div>
                 <div class="card-display" id="dragon-card">?</div>
                 <p class="bet-info" id="dbet">Bet: 0</p>
             </div>
 
-            <!-- TIGER ZONE -->
+            <!-- TIGER SIDE -->
             <div class="card-zone" style="border-color: #3498db;">
                 <div class="zone-title tiger-color">TIGER</div>
                 <div class="card-display" id="tiger-card">?</div>
@@ -99,20 +95,20 @@
 
         <div class="chip-selection">
             Chip Value:
-            <button class="chip active" id="c20" onclick="selectChip(20, this)">20</button>
-            <button class="chip" id="c50" onclick="selectChip(50, this)">50</button>
-            <button class="chip" id="c100" onclick="selectChip(100, this)">100</button>
+            <button class="chip active" onclick="selectChip(20, this)">20</button>
+            <button class="chip" onclick="selectChip(50, this)">50</button>
+            <button class="chip" onclick="selectChip(100, this)">100</button>
         </div>
 
         <div class="bet-buttons">
-            <button class="bet-btn btn-dragon" id="b-drag" onclick="placeBet('DRAGON')">DRAGON</button>
-            <button class="bet-btn btn-tie" id="b-tie" onclick="placeBet('TIE')">TIE (x9)</button>
-            <button class="bet-btn btn-tiger" id="b-tig" onclick="placeBet('TIGER')">TIGER</button>
+            <button class="bet-btn btn-dragon" onclick="placeBet('DRAGON')">DRAGON</button>
+            <button class="bet-btn btn-tie" onclick="placeBet('TIE')">TIE (x9)</button>
+            <button class="bet-btn btn-tiger" onclick="placeBet('TIGER')">TIGER</button>
         </div>
         <p class="bet-info" id="tiebet" style="text-align:center; margin-top:5px; color:#27ae60;">Tie Bet: 0</p>
     </div>
 
-    <!-- BOTTOM AD PLACE (Adsterra Code) -->
+    <!-- BOTTOM BANNER AD -->
     <div class="ad-container" style="margin-top:20px;">
         <script>
           atOptions = { 'key' : '106fe188147669b3cda5be0e349b22cc', 'format' : 'iframe', 'height' : 50, 'width' : 320, 'params' : {} };
@@ -126,34 +122,60 @@
         let level = 1;
         let consecutiveWins = 0;
         let bets = { DRAGON: 0, TIGER: 0, TIE: 0 };
-        let state = "BETTING"; // BETTING, COUNTDOWN, REVEAL
+        let state = "BETTING"; // BETTING, REVEAL
         let timeLeft = 10;
         let timerInterval;
 
         const suits = ['♠', '♥', '♦', '♣'];
         const values = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K'];
 
+        // Web Audio API for synthetic sounds
+        const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        function playTone(freq, type, duration) {
+            try {
+                let osc = audioCtx.createOscillator();
+                let gain = audioCtx.createGain();
+                osc.type = type;
+                osc.frequency.value = freq;
+                gain.gain.setValueAtTime(0.1, audioCtx.currentTime);
+                gain.gain.exponentialRampToValueAtTime(0.00001, audioCtx.currentTime + duration);
+                osc.connect(gain);
+                gain.connect(audioCtx.destination);
+                osc.start();
+                osc.stop(audioCtx.currentTime + duration);
+            } catch(e){}
+        }
+
+        // Live Speech Function (Computer Bolay Ga)
+        function speak(text) {
+            if ('speechSynthesis' in window) {
+                let utterance = new SpeechSynthesisUtterance(text);
+                utterance.lang = 'en-US';
+                utterance.rate = 1.0;
+                window.speechSynthesis.speak(utterance);
+            }
+        }
+
         function selectChip(amount, element) {
-            if (state !== "BETTING" && state !== "COUNTDOWN") return;
+            if (state !== "BETTING") return;
             currentChip = amount;
+            playTone(600, 'sine', 0.1);
             document.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
             element.classList.add('active');
         }
 
         function placeBet(side) {
-            if (state !== "BETTING" && state !== "COUNTDOWN") return;
+            if (state !== "BETTING") return;
             if (balance < currentChip) {
                 document.getElementById('status-message').innerText = "❌ Coins Kam Hain!";
+                speak("Not enough coins");
                 return;
             }
             bets[side] += currentChip;
             balance -= currentChip;
+            playTone(800, 'triangle', 0.15);
             updateUI();
             document.getElementById('status-message').innerText = `${side} Par Bet Lag Gayi!`;
-
-            if (state === "BETTING") {
-                startTimer();
-            }
         }
 
         function updateUI() {
@@ -164,25 +186,8 @@
             document.getElementById('tiebet').innerText = "Tie Bet: " + bets.TIE;
         }
 
-        function startTimer() {
-            state = "COUNTDOWN";
+        function startAutoTimer() {
             timeLeft = 10;
             document.getElementById('timer-box').innerText = timeLeft;
-            document.getElementById('timer-box').style.background = "radial-gradient(#e67e22, #d35400)";
-
-            timerInterval = setInterval(() => {
-                timeLeft--;
-                document.getElementById('timer-box').innerText = timeLeft;
-                document.getElementById('status-message').innerText = "Betting Chalu Hai... Jaldi Chunein!";
-
-                if (timeLeft === 0) {
-                    clearInterval(timerInterval);
-                    lockAndFlip();
-                }
-            }, 1000);
-        }
-
-        function lockAndFlip() {
-            state = "REVEAL";
-            document.getElementById('status-message').innerText = "🔒 Betting Closed! Cards Open Ho Rhe Hain...";
-            document.getElementById('timer-box').style.background = "radial-gradient(#7f8c8d, #34495e)";
+            document.getElementById('timer-box').style.background = "radial-gradient(#e74c3c, #c0392b)";
+            
