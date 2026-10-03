@@ -1,176 +1,2378 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>5-in-1 Mega Game Zone</title>
-    
-    <!-- ADSTERRA SOCIAL BAR CODE -->
-    <script src="https://profitableratecpmnetwork.com"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <style>
-        body { font-family: Arial, sans-serif; background-color: #111; color: white; text-align: center; margin: 0; padding: 10px; user-select: none; }
-        h1 { color: #f1c40f; margin: 5px 0; font-size: 26px; text-shadow: 2px 2px #000; }
-        
-        .portal-menu { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin: 15px auto; max-width: 400px; }
-        .menu-btn { background: linear-gradient(135deg, #2980b9, #3498db); color: white; border: none; padding: 10px 12px; font-size: 13px; font-weight: bold; border-radius: 8px; cursor: pointer; flex: 1 1 40%; box-shadow: 0 4px #21618c; }
-        .menu-btn.active { background: linear-gradient(135deg, #e67e22, #f39c12); box-shadow: 0 4px #d35400; }
+<title>HOK Creative Studio | Premium Digital Creative Agency</title>
 
-        .game-section { display: none; max-width: 400px; margin: 15px auto; background: #222; padding: 15px; border-radius: 12px; border: 2px solid #f1c40f; box-shadow: 0 5px 15px rgba(0,0,0,0.5); }
-        .game-section.active { display: block; }
+<meta name="description" content="HOK Creative Studio provides premium logo design, website design, social media design, video editing, e-commerce design and digital marketing creative services for USA and UK businesses.">
 
-        canvas { background-color: #27ae60; border: 3px solid #f1c40f; border-radius: 8px; max-width: 100%; display: block; margin: 0 auto; }
-        .controls { display: flex; justify-content: center; gap: 15px; margin-top: 15px; }
-        .btn { width: 75px; height: 65px; background-color: #e67e22; color: white; border: none; border-radius: 12px; font-size: 24px; font-weight: bold; cursor: pointer; box-shadow: 0 4px #a04000; }
-        .btn:active { transform: translateY(3px); box-shadow: none; }
-        
-        /* DRAGON VS TIGER STYLES */
-        .dvt-board { background: #0b5345; padding: 15px; border-radius: 10px; border: 3px solid #d4ac0d; margin-top: 10px; }
-        #dvt-timer { font-size: 32px; font-weight: bold; color: #fff; background: #e74c3c; width: 60px; height: 60px; line-height: 60px; border-radius: 50%; margin: 10px auto; box-shadow: 0 0 10px #e74c3c; }
-        .dvt-zones { display: flex; justify-content: space-around; margin: 15px 0; }
-        .dvt-card-box { width: 110px; background: rgba(0,0,0,0.5); padding: 10px 5px; border-radius: 8px; border: 2px dashed #fff; }
-        .dvt-card { width: 70px; height: 100px; background: white; color: black; border-radius: 6px; margin: 10px auto; display: flex; align-items: center; justify-content: center; font-size: 30px; font-weight: bold; }
-        .dvt-chip { display: inline-block; width: 35px; height: 35px; background: #e67e22; border-radius: 50%; line-height: 35px; font-weight: bold; color: #000; margin: 0 5px; cursor: pointer; border: 2px dashed #fff; }
-        .dvt-chip.active { background: #fff; border-color: #e67e22; }
-        .dvt-bet-btn { padding: 10px; font-size: 14px; font-weight: bold; border: none; border-radius: 5px; cursor: pointer; color: white; margin: 0 3px; width: 95px; }
+<style>
 
-        .ad-container { margin: 10px auto; width: 320px; min-height: 50px; display: flex; justify-content: center; align-items: center; background: #000; }
-    </style>
+/* =========================================================
+   HOK CREATIVE STUDIO
+   COMPLETE ONE-FILE WEBSITE
+   HTML + CSS + JAVASCRIPT
+   ========================================================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial,Helvetica,sans-serif;
+    background:#060606;
+    color:#fff;
+    line-height:1.6;
+    overflow-x:hidden;
+}
+
+:root{
+    --orange:#ff5a36;
+    --orange2:#ff8a5b;
+    --white:#fff;
+    --gray:#a5a5a5;
+    --dark:#060606;
+    --dark2:#0d0d0d;
+    --card:#111;
+    --border:rgba(255,255,255,.10);
+}
+
+a{
+    color:inherit;
+    text-decoration:none;
+}
+
+button,
+input,
+textarea,
+select{
+    font-family:inherit;
+}
+
+.container{
+    width:92%;
+    max-width:1180px;
+    margin:auto;
+}
+
+section{
+    padding:110px 0;
+}
+
+/* =========================================================
+   LOADING SCREEN
+   ========================================================= */
+
+.loader{
+    position:fixed;
+    inset:0;
+    background:#050505;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    z-index:99999;
+    transition:.6s;
+}
+
+.loader.hide{
+    opacity:0;
+    visibility:hidden;
+}
+
+.loader-logo{
+    font-size:55px;
+    font-weight:900;
+    letter-spacing:-5px;
+}
+
+.loader-logo span{
+    color:var(--orange);
+}
+
+/* =========================================================
+   NAVBAR
+   ========================================================= */
+
+header{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    z-index:9999;
+    background:rgba(6,6,6,.78);
+    backdrop-filter:blur(18px);
+    border-bottom:1px solid rgba(255,255,255,.07);
+}
+
+nav{
+    height:78px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    font-size:28px;
+    font-weight:900;
+    letter-spacing:-2px;
+}
+
+.logo span{
+    color:var(--orange);
+}
+
+.nav-links{
+    display:flex;
+    list-style:none;
+    align-items:center;
+    gap:30px;
+}
+
+.nav-links a{
+    color:#ccc;
+    font-size:14px;
+    transition:.3s;
+}
+
+.nav-links a:hover{
+    color:var(--orange);
+}
+
+.nav-cta{
+    background:var(--orange);
+    padding:11px 19px;
+    border-radius:30px;
+    color:white!important;
+    font-weight:bold;
+}
+
+.menu{
+    display:none;
+    font-size:30px;
+    cursor:pointer;
+}
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    position:relative;
+    overflow:hidden;
+    padding-top:100px;
+}
+
+.hero-bg{
+    position:absolute;
+    width:700px;
+    height:700px;
+    background:var(--orange);
+    opacity:.11;
+    filter:blur(190px);
+    border-radius:50%;
+    right:-250px;
+    top:-200px;
+}
+
+.hero-bg2{
+    position:absolute;
+    width:400px;
+    height:400px;
+    background:#ff3000;
+    opacity:.07;
+    filter:blur(160px);
+    left:-200px;
+    bottom:-150px;
+    border-radius:50%;
+}
+
+.hero-content{
+    max-width:900px;
+    position:relative;
+    z-index:2;
+}
+
+.badge{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    border:1px solid rgba(255,90,54,.35);
+    background:rgba(255,90,54,.07);
+    color:var(--orange2);
+    padding:8px 15px;
+    border-radius:30px;
+    font-size:13px;
+    margin-bottom:25px;
+}
+
+.hero h1{
+    font-size:clamp(50px,8vw,96px);
+    line-height:.96;
+    letter-spacing:-6px;
+    margin-bottom:28px;
+}
+
+.hero h1 span{
+    color:var(--orange);
+}
+
+.hero p{
+    color:var(--gray);
+    font-size:18px;
+    max-width:680px;
+    margin-bottom:35px;
+}
+
+.buttons{
+    display:flex;
+    gap:15px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    padding:15px 24px;
+    border-radius:9px;
+    font-weight:bold;
+    border:1px solid var(--border);
+    transition:.3s;
+    cursor:pointer;
+}
+
+.btn-primary{
+    background:var(--orange);
+    border-color:var(--orange);
+}
+
+.btn-primary:hover{
+    transform:translateY(-4px);
+    box-shadow:0 15px 40px rgba(255,90,54,.25);
+}
+
+.btn-outline:hover{
+    border-color:var(--orange);
+    color:var(--orange);
+}
+
+.hero-bottom{
+    display:flex;
+    gap:50px;
+    margin-top:60px;
+}
+
+.hero-stat strong{
+    display:block;
+    font-size:27px;
+}
+
+.hero-stat span{
+    color:#777;
+    font-size:12px;
+}
+
+/* =========================================================
+   SECTION TITLES
+   ========================================================= */
+
+.section-head{
+    text-align:center;
+    max-width:720px;
+    margin:0 auto 60px;
+}
+
+.section-head small{
+    color:var(--orange);
+    text-transform:uppercase;
+    letter-spacing:3px;
+    font-size:12px;
+    font-weight:bold;
+}
+
+.section-head h2{
+    font-size:clamp(36px,5vw,58px);
+    letter-spacing:-3px;
+    line-height:1.05;
+    margin:12px 0 18px;
+}
+
+.section-head p{
+    color:var(--gray);
+}
+
+/* =========================================================
+   SERVICES
+   ========================================================= */
+
+.services{
+    background:#090909;
+}
+
+.service-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.service-card{
+    background:linear-gradient(145deg,#141414,#0b0b0b);
+    border:1px solid var(--border);
+    border-radius:20px;
+    padding:32px;
+    position:relative;
+    overflow:hidden;
+    transition:.35s;
+}
+
+.service-card:hover{
+    transform:translateY(-8px);
+    border-color:rgba(255,90,54,.45);
+}
+
+.service-card:after{
+    content:"";
+    position:absolute;
+    width:130px;
+    height:130px;
+    background:var(--orange);
+    filter:blur(90px);
+    opacity:0;
+    right:-50px;
+    top:-50px;
+    transition:.4s;
+}
+
+.service-card:hover:after{
+    opacity:.22;
+}
+
+.icon{
+    width:58px;
+    height:58px;
+    border-radius:16px;
+    background:rgba(255,90,54,.11);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:27px;
+    margin-bottom:22px;
+}
+
+.service-card h3{
+    font-size:21px;
+    margin-bottom:12px;
+}
+
+.service-card p{
+    color:#999;
+    font-size:14px;
+}
+
+/* =========================================================
+   ABOUT
+   ========================================================= */
+
+.about-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:70px;
+    align-items:center;
+}
+
+.about-text h2{
+    font-size:clamp(40px,5vw,65px);
+    line-height:1;
+    letter-spacing:-3px;
+    margin-bottom:25px;
+}
+
+.about-text h2 span{
+    color:var(--orange);
+}
+
+.about-text p{
+    color:var(--gray);
+    margin-bottom:16px;
+}
+
+.about-box{
+    margin-top:30px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:15px;
+}
+
+.about-stat{
+    background:#101010;
+    border:1px solid var(--border);
+    padding:22px;
+    border-radius:15px;
+}
+
+.about-stat strong{
+    display:block;
+    color:var(--orange);
+    font-size:30px;
+}
+
+.about-stat span{
+    color:#888;
+    font-size:13px;
+}
+
+.about-art{
+    min-height:470px;
+    border:1px solid var(--border);
+    border-radius:28px;
+    background:
+        radial-gradient(circle at 70% 25%,rgba(255,90,54,.35),transparent 30%),
+        linear-gradient(135deg,#181818,#080808);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    position:relative;
+    overflow:hidden;
+}
+
+.big-logo{
+    font-size:120px;
+    font-weight:900;
+    letter-spacing:-12px;
+}
+
+.big-logo span{
+    color:var(--orange);
+}
+
+.circle{
+    position:absolute;
+    width:300px;
+    height:300px;
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:50%;
+    animation:rotate 15s linear infinite;
+}
+
+.circle2{
+    width:420px;
+    height:420px;
+}
+
+@keyframes rotate{
+    from{transform:rotate(0deg)}
+    to{transform:rotate(360deg)}
+}
+
+/* =========================================================
+   PORTFOLIO
+   ========================================================= */
+
+.portfolio{
+    background:#090909;
+}
+
+.portfolio-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.work{
+    height:300px;
+    border-radius:20px;
+    overflow:hidden;
+    border:1px solid var(--border);
+    position:relative;
+    background:#151515;
+}
+
+.work-bg{
+    position:absolute;
+    inset:0;
+    transition:.5s;
+}
+
+.work:hover .work-bg{
+    transform:scale(1.08);
+}
+
+.work:nth-child(1) .work-bg{
+    background:
+        radial-gradient(circle at 30% 30%,#ff6947,transparent 25%),
+        linear-gradient(135deg,#21110c,#090909);
+}
+
+.work:nth-child(2) .work-bg{
+    background:
+        radial-gradient(circle at 70% 25%,#5b91ff,transparent 25%),
+        linear-gradient(135deg,#10182b,#080808);
+}
+
+.work:nth-child(3) .work-bg{
+    background:
+        radial-gradient(circle at 40% 30%,#a95cff,transparent 25%),
+        linear-gradient(135deg,#1a0e24,#080808);
+}
+
+.work:nth-child(4) .work-bg{
+    background:
+        radial-gradient(circle at 60% 25%,#36e1a0,transparent 25%),
+        linear-gradient(135deg,#0c211b,#080808);
+}
+
+.work:nth-child(5) .work-bg{
+    background:
+        radial-gradient(circle at 40% 20%,#ffc34d,transparent 25%),
+        linear-gradient(135deg,#21180a,#080808);
+}
+
+.work:nth-child(6) .work-bg{
+    background:
+        radial-gradient(circle at 65% 25%,#ff466f,transparent 25%),
+        linear-gradient(135deg,#210b13,#080808);
+}
+
+.work-content{
+    position:absolute;
+    bottom:0;
+    left:0;
+    width:100%;
+    padding:25px;
+    background:linear-gradient(transparent,rgba(0,0,0,.95));
+}
+
+.work-content small{
+    color:var(--orange2);
+}
+
+.work-content h3{
+    font-size:21px;
+}
+
+/* =========================================================
+   PROCESS
+   ========================================================= */
+
+.process-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:20px;
+}
+
+.process-card{
+    padding:30px;
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:18px;
+}
+
+.process-number{
+    font-size:45px;
+    color:var(--orange);
+    font-weight:900;
+}
+
+.process-card h3{
+    margin:12px 0;
+}
+
+.process-card p{
+    color:#888;
+    font-size:14px;
+}
+
+/* =========================================================
+   PRICING
+   ========================================================= */
+
+.pricing{
+    background:#090909;
+}
+
+.price-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.price-card{
+    background:#111;
+    border:1px solid var(--border);
+    border-radius:20px;
+    padding:35px;
+    position:relative;
+}
+
+.price-card.popular{
+    border-color:var(--orange);
+    transform:scale(1.03);
+}
+
+.popular-tag{
+    position:absolute;
+    top:-13px;
+    right:20px;
+    background:var(--orange);
+    padding:6px 14px;
+    border-radius:30px;
+    font-size:10px;
+    font-weight:bold;
+}
+
+.price-card h3{
+    font-size:24px;
+}
+
+.price{
+    font-size:45px;
+    font-weight:900;
+    margin:12px 0;
+}
+
+.price small{
+    color:#777;
+    font-size:13px;
+}
+
+.price-card p{
+    color:#888;
+}
+
+.price-list{
+    list-style:none;
+    margin:25px 0;
+}
+
+.price-list li{
+    color:#ccc;
+    font-size:14px;
+    padding:8px 0;
+}
+
+.price-list li:before{
+    content:"✓";
+    color:var(--orange);
+    margin-right:10px;
+}
+
+.price-card .btn{
+    width:100%;
+}
+
+/* =========================================================
+   TESTIMONIALS
+   ========================================================= */
+
+.testimonial-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.testimonial{
+    padding:30px;
+    border:1px solid var(--border);
+    background:#101010;
+    border-radius:18px;
+}
+
+.stars{
+    color:#ffc400;
+    letter-spacing:3px;
+    margin-bottom:15px;
+}
+
+.testimonial p{
+    color:#aaa;
+    font-size:14px;
+    margin-bottom:20px;
+}
+
+.client{
+    font-weight:bold;
+}
+
+.client span{
+    display:block;
+    color:#777;
+    font-size:12px;
+    font-weight:normal;
+}
+
+/* =========================================================
+   FAQ
+   ========================================================= */
+
+.faq{
+    max-width:850px;
+    margin:auto;
+}
+
+details{
+    background:#101010;
+    border:1px solid var(--border);
+    border-radius:13px;
+    padding:20px;
+    margin-bottom:12px;
+}
+
+summary{
+    cursor:pointer;
+    font-weight:bold;
+}
+
+details p{
+    color:#999;
+    font-size:14px;
+    padding-top:15px;
+}
+
+/* =========================================================
+   CONTACT
+   ========================================================= */
+
+.contact{
+    background:
+        radial-gradient(circle at center,rgba(255,90,54,.12),transparent 40%),
+        #070707;
+}
+
+.contact-wrap{
+    max-width:850px;
+    margin:auto;
+}
+
+.contact-form{
+    display:grid;
+    gap:15px;
+}
+
+.form-row{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:15px;
+}
+
+input,
+textarea,
+select{
+    width:100%;
+    background:#111;
+    color:white;
+    border:1px solid var(--border);
+    border-radius:10px;
+    padding:16px;
+    outline:none;
+}
+
+input:focus,
+textarea:focus,
+select:focus{
+    border-color:var(--orange);
+}
+
+textarea{
+    min-height:160px;
+    resize:vertical;
+}
+
+select{
+    cursor:pointer;
+}
+
+.form-message{
+    display:none;
+    background:rgba(37,211,102,.1);
+    border:1px solid rgba(37,211,102,.3);
+    color:#7cffad;
+    padding:15px;
+    border-radius:10px;
+}
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+footer{
+    border-top:1px solid var(--border);
+    padding:55px 0 25px;
+    background:#050505;
+}
+
+.footer-grid{
+    display:grid;
+    grid-template-columns:2fr 1fr 1fr 1fr;
+    gap:40px;
+    padding-bottom:40px;
+}
+
+.footer-logo{
+    font-size:30px;
+    font-weight:900;
+}
+
+.footer-logo span{
+    color:var(--orange);
+}
+
+.footer-grid p{
+    color:#777;
+    max-width:350px;
+    margin-top:15px;
+    font-size:14px;
+}
+
+.footer-grid h3{
+    margin-bottom:15px;
+}
+
+.footer-links{
+    display:flex;
+    flex-direction:column;
+    gap:9px;
+}
+
+.footer-links a{
+    color:#888;
+    font-size:14px;
+    transition:.3s;
+}
+
+.footer-links a:hover{
+    color:var(--orange);
+}
+
+.socials{
+    display:flex;
+    gap:10px;
+    margin-top:20px;
+}
+
+.social{
+    width:40px;
+    height:40px;
+    border:1px solid var(--border);
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    transition:.3s;
+}
+
+.social:hover{
+    border-color:var(--orange);
+    color:var(--orange);
+}
+
+.copyright{
+    border-top:1px solid var(--border);
+    padding-top:20px;
+    display:flex;
+    justify-content:space-between;
+    color:#555;
+    font-size:12px;
+}
+
+/* =========================================================
+   WHATSAPP
+   ========================================================= */
+
+.whatsapp{
+    position:fixed;
+    right:22px;
+    bottom:22px;
+    width:60px;
+    height:60px;
+    border-radius:50%;
+    background:#25d366;
+    color:white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:28px;
+    z-index:9998;
+    box-shadow:0 10px 35px rgba(37,211,102,.25);
+    transition:.3s;
+}
+
+.whatsapp:hover{
+    transform:scale(1.1);
+}
+
+/* =========================================================
+   BACK TO TOP
+   ========================================================= */
+
+.top{
+    position:fixed;
+    right:22px;
+    bottom:95px;
+    width:45px;
+    height:45px;
+    border:1px solid var(--border);
+    background:#111;
+    color:white;
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    cursor:pointer;
+    opacity:0;
+    visibility:hidden;
+    transition:.3s;
+    z-index:9997;
+}
+
+.top.show{
+    opacity:1;
+    visibility:visible;
+}
+
+/* =========================================================
+   ANIMATION
+   ========================================================= */
+
+.reveal{
+    opacity:0;
+    transform:translateY(35px);
+    transition:1s;
+}
+
+.reveal.active{
+    opacity:1;
+    transform:translateY(0);
+}
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media(max-width:950px){
+
+    .service-grid,
+    .portfolio-grid,
+    .price-grid,
+    .testimonial-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .process-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .about-grid{
+        grid-template-columns:1fr;
+    }
+
+    .footer-grid{
+        grid-template-columns:2fr 1fr 1fr;
+    }
+
+}
+
+@media(max-width:700px){
+
+    section{
+        padding:80px 0;
+    }
+
+    .menu{
+        display:block;
+    }
+
+    .nav-links{
+        position:absolute;
+        top:78px;
+        left:0;
+        width:100%;
+        background:#080808;
+        flex-direction:column;
+        padding:25px;
+        gap:20px;
+        display:none;
+        border-bottom:1px solid var(--border);
+    }
+
+    .nav-links.active{
+        display:flex;
+    }
+
+    .hero h1{
+        font-size:55px;
+        letter-spacing:-4px;
+    }
+
+    .hero p{
+        font-size:16px;
+    }
+
+    .hero-bottom{
+        gap:25px;
+        flex-wrap:wrap;
+    }
+
+    .service-grid,
+    .portfolio-grid,
+    .price-grid,
+    .testimonial-grid,
+    .process-grid{
+        grid-template-columns:1fr;
+    }
+
+    .price-card.popular{
+        transform:none;
+    }
+
+    .form-row{
+        grid-template-columns:1fr;
+    }
+
+    .footer-grid{
+        grid-template-columns:1fr;
+    }
+
+    .copyright{
+        flex-direction:column;
+        gap:8px;
+    }
+
+    .about-art{
+        min-height:350px;
+    }
+
+    .big-logo{
+        font-size:80px;
+    }
+
+}
+
+</style>
 </head>
+
+
 <body>
 
-    <!-- TOP BANNER AD -->
-    <div class="ad-container">
-        <script>
-          atOptions = { 'key' : '106fe188147669b3cda5be0e349b22cc', 'format' : 'iframe', 'height' : 50, 'width' : 320, 'params' : {} };
-        </script>
-        <script src="https://highrevenueformat.com"></script>
+
+<!-- =========================================================
+     LOADER
+     ========================================================= -->
+
+<div class="loader" id="loader">
+    <div class="loader-logo">
+        H<span>OK</span>
     </div>
+</div>
 
-    <h1>🎮 Kid's Game Portal 🌟</h1>
-    <p style="margin: 0; font-weight: bold; color: #f1c40f;">💰 Portal Coins: <span id="global-balance">1000</span></p>
 
-    <!-- PORTAL MENU (Ab pehle number par Car Game hai!) -->
-    <div class="portal-menu">
-        <button class="menu-btn active" onclick="switchGame('car', this)">🏎️ Car Racing (New)</button>
-        <button class="menu-btn" onclick="switchGame('dvt', this)">🐉 Dragon vs Tiger</button>
-        <button class="menu-btn" onclick="switchGame('chhu', this)">🐱 Chhu Mucchhu</button>
-        <button class="menu-btn" onclick="switchGame('snake', this)">🐍 Snake Game</button>
-    </div>
+<!-- =========================================================
+     HEADER
+     ========================================================= -->
 
-    <!-- 1. NEW CAR RACING GAME SECTION -->
-    <div id="game-car" class="game-section active">
-        <h3>🏎️ Highway Car Racing Challenge 🏁</h3>
-        <p style="margin:2px; font-weight:bold;">Score: <span id="car-score" style="color:#f1c40f;">0</span></p>
-        <canvas id="carCanvas" width="300" height="350" style="background:#333; border: 4px solid #f1c40f;"></canvas>
-        <div class="controls">
-            <button class="btn" onclick="moveCar('LEFT')">◀ Left</button>
-            <button class="btn" onclick="initCar()" style="background:#2980b9;">🔄</button>
-            <button class="btn" onclick="moveCar('RIGHT')">Right ▶</button>
-        </div>
-        <p style="font-size:12px; margin-top:5px; color:#aaa;">Bache button daba kar car bachahein aur score banayein!</p>
-    </div>
+<header>
 
-    <!-- 2. DRAGON VS TIGER SECTION -->
-    <div id="game-dvt" class="game-section">
-        <h3>🐉 Dragon vs Tiger: Auto Live Loop 🐯</h3>
-        <div id="dvt-status" style="font-weight: bold; color: #5dade2; background: #000; padding: 5px; border-radius: 4px;">Timer chalu hai! Apni bet lagayein.</div>
-        <div id="dvt-timer">10</div>
-        <div class="dvt-board">
-            <div class="dvt-zones">
-                <div class="dvt-card-box" style="border-color: #e74c3c;"><b style="color: #e74c3c;">DRAGON</b><div class="dvt-card" id="d-card">?</div><span id="d-bet-text">Bet: 0</span></div>
-                <div class="dvt-card-box" style="border-color: #3498db;"><b style="color: #3498db;">TIGER</b><div class="dvt-card" id="t-card">?</div><span id="t-bet-text">Bet: 0</span></div>
-            </div>
-            <button class="dvt-bet-btn" style="background:#e74c3c;" onclick="placeDvtBet('DRAGON')">DRAGON</button>
-            <button class="dvt-bet-btn" style="background:#3498db;" onclick="placeDvtBet('TIGER')">TIGER</button>
-        </div>
-    </div>
+<div class="container">
 
-    <!-- 3. CHHU MUCCHHU SECTION -->
-    <div id="game-chhu" class="game-section">
-        <h3>🐱 Chhu Mucchhu Chase 🐭</h3>
-        <canvas id="chhuCanvas" width="300" height="300"></canvas>
-    </div>
+<nav>
 
-    <!-- 4. SNAKE GAME SECTION -->
-    <div id="game-snake" class="game-section">
-        <h3>🐍 Classic Saanp Game</h3>
-        <canvas id="snakeCanvas" width="300" height="300" style="background:#1a1a1a;"></canvas>
-    </div>
+<a href="#home" class="logo">
+    HOK<span>.</span>
+</a>
 
-    <!-- BOTTOM BANNER AD -->
-    <div class="ad-container" style="margin-top:20px;">
-        <script>
-          atOptions = { 'key' : '106fe188147669b3cda5be0e349b22cc', 'format' : 'iframe', 'height' : 50, 'width' : 320, 'params' : {} };
-        </script>
-        <script src="https://highrevenueformat.com"></script>
-    </div>
+<ul class="nav-links" id="navLinks">
 
-    <script>
-        let balance = 1000;
-        function updateGlobalBalance() { document.getElementById('global-balance').innerText = balance; }
+<li><a href="#home">Home</a></li>
+<li><a href="#services">Services</a></li>
+<li><a href="#about">About</a></li>
+<li><a href="#portfolio">Portfolio</a></li>
+<li><a href="#pricing">Pricing</a></li>
+<li><a href="#process">Process</a></li>
+<li><a href="#contact" class="nav-cta">Let's Talk</a></li>
 
-        function switchGame(gameId, btn) {
-            document.querySelectorAll('.game-section').forEach(sec => sec.classList.remove('active'));
-            document.querySelectorAll('.menu-btn').forEach(b => b.classList.remove('active'));
-            document.getElementById('game-' + gameId).classList.add('active');
-            btn.classList.add('active');
-            if(gameId === 'car') initCar();
-            if(gameId === 'dvt') startDvtTimer();
+</ul>
+
+<div class="menu" id="menu">
+    ☰
+</div>
+
+</nav>
+
+</div>
+
+</header>
+
+
+<!-- =========================================================
+     HERO
+     ========================================================= -->
+
+<section class="hero" id="home">
+
+<div class="hero-bg"></div>
+<div class="hero-bg2"></div>
+
+<div class="container">
+
+<div class="hero-content reveal">
+
+<div class="badge">
+    ✦ Creative Studio for USA & UK Businesses
+</div>
+
+<h1>
+    We Build Brands
+    <br>
+    That <span>Stand Out.</span>
+</h1>
+
+<p>
+    HOK Creative Studio helps businesses build powerful
+    digital brands with premium logo design, websites,
+    social media creatives, video editing, e-commerce
+    design and marketing content.
+</p>
+
+<div class="buttons">
+
+<a href="#contact" class="btn btn-primary">
+    Start Your Project →
+</a>
+
+<a href="#portfolio" class="btn btn-outline">
+    View Portfolio
+</a>
+
+</div>
+
+<div class="hero-bottom">
+
+<div class="hero-stat">
+    <strong>100+</strong>
+    <span>Projects</span>
+</div>
+
+<div class="hero-stat">
+    <strong>50+</strong>
+    <span>Clients</span>
+</div>
+
+<div class="hero-stat">
+    <strong>USA / UK</strong>
+    <span>Target Market</span>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================================================
+     SERVICES
+     ========================================================= -->
+
+<section class="services" id="services">
+
+<div class="container">
+
+<div class="section-head reveal">
+
+<small>What We Do</small>
+
+<h2>
+    Everything Your Brand Needs
+</h2>
+
+<p>
+    From your first logo to a complete digital presence,
+    we provide creative services under one roof.
+</p>
+
+</div>
+
+
+<div class="service-grid">
+
+
+<div class="service-card reveal">
+
+<div class="icon">✦</div>
+
+<h3>Logo & Brand Identity</h3>
+
+<p>
+    Professional logo design, brand colors,
+    typography, business cards and complete
+    visual identity systems.
+</p>
+
+</div>
+
+
+<div class="service-card reveal">
+
+<div class="icon">⌘</div>
+
+<h3>Website Design</h3>
+
+<p>
+    Modern responsive websites designed to
+    build trust and turn visitors into customers.
+</p>
+
+</div>
+
+
+<div class="service-card reveal">
+
+<div class="icon">◎</div>
+
+<h3>Social Media Design</h3>
+
+<p>
+    Instagram, Facebook, TikTok and YouTube
+    designs that make your business look premium.
+</p>
+
+</div>
+
+
+<div class="service-card reveal">
+
+<div class="icon">▶</div>
+
+<h3>Video Editing</h3>
+
+<p>
+    Reels, Shorts, YouTube videos, product
+    advertisements and cinematic promotional videos.
+</p>
+
+</div>
+
+
+<div class="service-card reveal">
+
+<div class="icon">🛒</div>
+
+<h3>E-Commerce Design</h3>
+
+<p>
+    Shopify graphics, product images, banners,
+    Amazon creatives and online store designs.
+</p>
+
+</div>
+
+
+<div class="service-card reveal">
+
+<div class="icon">↗</div>
+
+<h3>Digital Marketing Creative</h3>
+
+<p>
+    Advertising creatives, social media campaigns
+    and promotional graphics built for conversions.
+</p>
+
+</div>
+
+
+<div class="service-card reveal">
+
+<div class="icon">▣</div>
+
+<h3>YouTube Design</h3>
+
+<p>
+    YouTube thumbnails, channel branding,
+    banners and video graphics.
+</p>
+
+</div>
+
+
+<div class="service-card reveal">
+
+<div class="icon">◉</div>
+
+<h3>Facebook Design</h3>
+
+<p>
+    Facebook cover designs, ads, posts,
+    promotional banners and business graphics.
+</p>
+
+</div>
+
+
+<div class="service-card reveal">
+
+<div class="icon">◆</div>
+
+<h3>Complete Business Branding</h3>
+
+<p>
+    A complete visual system for businesses
+    that want a strong and professional identity.
+</p>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================================================
+     ABOUT
+     ========================================================= -->
+
+<section id="about">
+
+<div class="container">
+
+<div class="about-grid">
+
+<div class="about-text reveal">
+
+<h2>
+    Creative Ideas.
+    <br>
+    <span>Real Results.</span>
+</h2>
+
+<p>
+    HOK Creative Studio is a digital creative agency
+    focused on helping businesses create professional
+    brands and strong online experiences.
+</p>
+
+<p>
+    We combine creative design, strategy and modern
+    digital solutions to help businesses stand out
+    in competitive markets.
+</p>
+
+<div class="about-box">
+
+<div class="about-stat">
+    <strong>100+</strong>
+    <span>Creative Projects</span>
+</div>
+
+<div class="about-stat">
+    <strong>50+</strong>
+    <span>Happy Clients</span>
+</div>
+
+<div class="about-stat">
+    <strong>24/7</strong>
+    <span>Communication</span>
+</div>
+
+<div class="about-stat">
+    <strong>USA/UK</strong>
+    <span>Target Clients</span>
+</div>
+
+</div>
+
+</div>
+
+
+<div class="about-art reveal">
+
+<div class="circle"></div>
+<div class="circle circle2"></div>
+
+<div class="big-logo">
+    H<span>OK</span>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================================================
+     PORTFOLIO
+     ========================================================= -->
+
+<section class="portfolio" id="portfolio">
+
+<div class="container">
+
+<div class="section-head reveal">
+
+<small>Our Work</small>
+
+<h2>
+    Selected Projects
+</h2>
+
+<p>
+    A preview of the creative work HOK Creative Studio
+    can create for modern businesses.
+</p>
+
+</div>
+
+
+<div class="portfolio-grid">
+
+
+<div class="work reveal">
+
+<div class="work-bg"></div>
+
+<div class="work-content">
+<small>Brand Identity</small>
+<h3>Modern Business Branding</h3>
+</div>
+
+</div>
+
+
+<div class="work reveal">
+
+<div class="work-bg"></div>
+
+<div class="work-content">
+<small>E-Commerce</small>
+<h3>Online Store Design</h3>
+</div>
+
+</div>
+
+
+<div class="work reveal">
+
+<div class="work-bg"></div>
+
+<div class="work-content">
+<small>Website Design</small>
+<h3>Corporate Website</h3>
+</div>
+
+</div>
+
+
+<div class="work reveal">
+
+<div class="work-bg"></div>
+
+<div class="work-content">
+<small>Social Media</small>
+<h3>Instagram Campaign</h3>
+</div>
+
+</div>
+
+
+<div class="work reveal">
+
+<div class="work-bg"></div>
+
+<div class="work-content">
+<small>Video Editing</small>
+<h3>Product Advertisement</h3>
+</div>
+
+</div>
+
+
+<div class="work reveal">
+
+<div class="work-bg"></div>
+
+<div class="work-content">
+<small>Marketing</small>
+<h3>Digital Ad Campaign</h3>
+</div>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================================================
+     PROCESS
+     ========================================================= -->
+
+<section id="process">
+
+<div class="container">
+
+<div class="section-head reveal">
+
+<small>Our Process</small>
+
+<h2>
+    Simple. Clear. Professional.
+</h2>
+
+<p>
+    We make the entire creative process easy for you.
+</p>
+
+</div>
+
+
+<div class="process-grid">
+
+
+<div class="process-card reveal">
+
+<div class="process-number">01</div>
+
+<h3>Discovery</h3>
+
+<p>
+    We understand your business, audience,
+    competitors and goals.
+</p>
+
+</div>
+
+
+<div class="process-card reveal">
+
+<div class="process-number">02</div>
+
+<h3>Strategy</h3>
+
+<p>
+    We create a creative direction that fits
+    your brand and target audience.
+</p>
+
+</div>
+
+
+<div class="process-card reveal">
+
+<div class="process-number">03</div>
+
+<h3>Design</h3>
+
+<p>
+    Our team creates professional and
+    high-quality creative work.
+</p>
+
+</div>
+
+
+<div class="process-card reveal">
+
+<div class="process-number">04</div>
+
+<h3>Delivery</h3>
+
+<p>
+    Final files are delivered ready for
+    business, web and social media use.
+</p>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================================================
+     PRICING
+     ========================================================= -->
+
+<section class="pricing" id="pricing">
+
+<div class="container">
+
+<div class="section-head reveal">
+
+<small>Pricing</small>
+
+<h2>
+    Packages For Every Business
+</h2>
+
+<p>
+    Start small or choose a complete creative solution.
+</p>
+
+</div>
+
+
+<div class="price-grid">
+
+
+<div class="price-card reveal">
+
+<h3>Starter</h3>
+
+<div class="price">
+    $99 <small>/ project</small>
+</div>
+
+<p>
+    Perfect for small businesses.
+</p>
+
+<ul class="price-list">
+
+<li>Professional Logo</li>
+<li>2 Logo Concepts</li>
+<li>PNG + JPG Files</li>
+<li>Social Media Profile</li>
+<li>3 Revisions</li>
+
+</ul>
+
+<a href="#contact" class="btn btn-outline">
+    Choose Starter
+</a>
+
+</div>
+
+
+<div class="price-card popular reveal">
+
+<div class="popular-tag">
+    MOST POPULAR
+</div>
+
+<h3>Business</h3>
+
+<div class="price">
+    $299 <small>/ project</small>
+</div>
+
+<p>
+    Perfect for growing businesses.
+</p>
+
+<ul class="price-list">
+
+<li>Complete Logo Design</li>
+<li>Brand Identity</li>
+<li>Business Website</li>
+<li>Social Media Design</li>
+<li>Source Files</li>
+<li>Multiple Revisions</li>
+
+</ul>
+
+<a href="#contact" class="btn btn-primary">
+    Choose Business
+</a>
+
+</div>
+
+
+<div class="price-card reveal">
+
+<h3>Premium</h3>
+
+<div class="price">
+    $599+ <small>/ project</small>
+</div>
+
+<p>
+    Complete digital brand solution.
+</p>
+
+<ul class="price-list">
+
+<li>Premium Brand Identity</li>
+<li>Professional Website</li>
+<li>E-Commerce Design</li>
+<li>Social Media Kit</li>
+<li>Video Editing</li>
+<li>Marketing Creatives</li>
+
+</ul>
+
+<a href="#contact" class="btn btn-outline">
+    Choose Premium
+</a>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================================================
+     TESTIMONIALS
+     ========================================================= -->
+
+<section>
+
+<div class="container">
+
+<div class="section-head reveal">
+
+<small>Client Reviews</small>
+
+<h2>
+    What Clients Say
+</h2>
+
+<p>
+    Professional creative work that helps businesses
+    look better and grow online.
+</p>
+
+</div>
+
+
+<div class="testimonial-grid">
+
+
+<div class="testimonial reveal">
+
+<div class="stars">
+★★★★★
+</div>
+
+<p>
+"Excellent branding work. The final design looked
+much more professional than we expected."
+</p>
+
+<div class="client">
+Michael R.
+<span>USA Business Owner</span>
+</div>
+
+</div>
+
+
+<div class="testimonial reveal">
+
+<div class="stars">
+★★★★★
+</div>
+
+<p>
+"Our website and social media graphics completely
+changed the way our business looks online."
+</p>
+
+<div class="client">
+James W.
+<span>UK E-Commerce Owner</span>
+</div>
+
+</div>
+
+
+<div class="testimonial reveal">
+
+<div class="stars">
+★★★★★
+</div>
+
+<p>
+"Very professional communication and creative
+design. Highly recommended."
+</p>
+
+<div class="client">
+Sarah M.
+<span>USA Entrepreneur</span>
+</div>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================================================
+     FAQ
+     ========================================================= -->
+
+<section>
+
+<div class="container">
+
+<div class="section-head reveal">
+
+<small>FAQ</small>
+
+<h2>
+    Frequently Asked Questions
+</h2>
+
+</div>
+
+
+<div class="faq">
+
+
+<details class="reveal">
+
+<summary>
+How can I start a project?
+</summary>
+
+<p>
+Simply send us a WhatsApp message or use the project
+form below. Tell us what you need and we will discuss
+your project with you.
+</p>
+
+</details>
+
+
+<details class="reveal">
+
+<summary>
+Do you work with USA and UK clients?
+</summary>
+
+<p>
+Yes. HOK Creative Studio is focused on helping
+businesses, brands and online stores in USA and UK markets.
+</p>
+
+</details>
+
+
+<details class="reveal">
+
+<summary>
+Can you create a complete brand?
+</summary>
+
+<p>
+Yes. We can create your logo, brand identity, website,
+social media graphics, marketing creatives and other
+digital assets.
+</p>
+
+</details>
+
+
+<details class="reveal">
+
+<summary>
+Can you design e-commerce stores?
+</summary>
+
+<p>
+Yes. We can help with Shopify, product graphics,
+banners, landing pages, product listings and other
+e-commerce design requirements.
+</p>
+
+</details>
+
+
+<details class="reveal">
+
+<summary>
+Can you edit promotional videos?
+</summary>
+
+<p>
+Yes. We can create reels, shorts, advertisements,
+product videos, YouTube videos and promotional content.
+</p>
+
+</details>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================================================
+     CONTACT
+     ========================================================= -->
+
+<section class="contact" id="contact">
+
+<div class="container">
+
+<div class="contact-wrap">
+
+<div class="section-head reveal">
+
+<small>Let's Work Together</small>
+
+<h2>
+    Have A Project In Mind?
+</h2>
+
+<p>
+    Tell us about your business and project.
+    We will get back to you as soon as possible.
+</p>
+
+</div>
+
+
+<form class="contact-form reveal" id="contactForm">
+
+
+<div class="form-row">
+
+<input
+    type="text"
+    id="name"
+    placeholder="Your Name"
+    required
+>
+
+<input
+    type="email"
+    id="email"
+    placeholder="Your Email"
+    required
+>
+
+</div>
+
+
+<input
+    type="text"
+    id="business"
+    placeholder="Business / Company Name"
+>
+
+
+<select id="service" required>
+
+<option value="">
+Select Your Service
+</option>
+
+<option>Logo & Brand Identity</option>
+<option>Website Design</option>
+<option>Social Media Design</option>
+<option>Video Editing</option>
+<option>E-Commerce Design</option>
+<option>YouTube Design</option>
+<option>Facebook Design</option>
+<option>Digital Marketing Creative</option>
+<option>Complete Business Branding</option>
+
+</select>
+
+
+<textarea
+    id="message"
+    placeholder="Tell us about your project..."
+    required
+></textarea>
+
+
+<button
+    type="submit"
+    class="btn btn-primary"
+>
+    Send Project Request →
+</button>
+
+
+<div class="form-message" id="formMessage">
+    Thank you! Your enquiry is ready to send.
+</div>
+
+
+</form>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================================================
+     FOOTER
+     ========================================================= -->
+
+<footer>
+
+<div class="container">
+
+<div class="footer-grid">
+
+
+<div>
+
+<div class="footer-logo">
+HOK<span>.</span>
+</div>
+
+<p>
+HOK Creative Studio helps businesses build
+professional brands, websites, social media
+content and digital experiences.
+</p>
+
+
+<div class="socials">
+
+<a href="#" class="social" title="Instagram">
+IG
+</a>
+
+<a href="#" class="social" title="Facebook">
+FB
+</a>
+
+<a href="#" class="social" title="TikTok">
+TK
+</a>
+
+<a href="#" class="social" title="YouTube">
+YT
+</a>
+
+</div>
+
+</div>
+
+
+<div>
+
+<h3>Company</h3>
+
+<div class="footer-links">
+
+<a href="#home">Home</a>
+<a href="#about">About</a>
+<a href="#portfolio">Portfolio</a>
+<a href="#pricing">Pricing</a>
+
+</div>
+
+</div>
+
+
+<div>
+
+<h3>Services</h3>
+
+<div class="footer-links">
+
+<a href="#services">Logo Design</a>
+<a href="#services">Website Design</a>
+<a href="#services">Social Media</a>
+<a href="#services">Video Editing</a>
+<a href="#services">E-Commerce</a>
+
+</div>
+
+</div>
+
+
+<div>
+
+<h3>Contact</h3>
+
+<div class="footer-links">
+
+<a href="mailto:hello@hokcreative.studio">
+hello@hokcreative.studio
+</a>
+
+<a href="https://wa.me/923000000000" target="_blank">
+WhatsApp
+</a>
+
+<a href="#contact">
+Start Project
+</a>
+
+</div>
+
+</div>
+
+
+</div>
+
+
+<div class="copyright">
+
+<span>
+© <span id="year"></span> HOK Creative Studio. All Rights Reserved.
+</span>
+
+<span>
+USA • UK • Worldwide
+</span>
+
+</div>
+
+</div>
+
+</footer>
+
+
+<!-- =========================================================
+     WHATSAPP BUTTON
+     ========================================================= -->
+
+<a
+    href="https://wa.me/923000000000"
+    target="_blank"
+    class="whatsapp"
+    title="Chat on WhatsApp"
+>
+    ☎
+</a>
+
+
+<!-- =========================================================
+     BACK TO TOP
+     ========================================================= -->
+
+<div class="top" id="top">
+    ↑
+</div>
+
+
+<!-- =========================================================
+     JAVASCRIPT
+     ========================================================= -->
+
+<script>
+
+/* ================= LOADER ================= */
+
+window.addEventListener("load",function(){
+
+    setTimeout(function(){
+
+        document.getElementById("loader")
+        .classList.add("hide");
+
+    },700);
+
+});
+
+
+/* ================= MOBILE MENU ================= */
+
+const menu =
+document.getElementById("menu");
+
+const navLinks =
+document.getElementById("navLinks");
+
+menu.addEventListener("click",function(){
+
+    navLinks.classList.toggle("active");
+
+});
+
+
+document.querySelectorAll(".nav-links a")
+.forEach(function(link){
+
+    link.addEventListener("click",function(){
+
+        navLinks.classList.remove("active");
+
+    });
+
+});
+
+
+/* ================= YEAR ================= */
+
+document.getElementById("year")
+.innerText =
+new Date().getFullYear();
+
+
+/* ================= SCROLL REVEAL ================= */
+
+const revealElements =
+document.querySelectorAll(".reveal");
+
+function reveal(){
+
+    revealElements.forEach(function(element){
+
+        const windowHeight =
+        window.innerHeight;
+
+        const elementTop =
+        element.getBoundingClientRect().top;
+
+        if(elementTop < windowHeight - 80){
+
+            element.classList.add("active");
+
         }
 
-        // ==================== 🏎️ NEW CAR RACING GAME CODE ====================
-        const carCanvas = document.getElementById("carCanvas");
-        const carCtx = carCanvas.getContext("2d");
-        
-        let playerCar, enemyCars, carScore, carGameInterval, carSpeed;
-        const carWidth = 35, carHeight = 60;
+    });
 
-        function initCar() {
-            playerCar = { x: 130, y: 280 };
-            enemyCars = [];
-            carScore = 0;
-            carSpeed = 4;
-            document.getElementById("car-score").innerText = carScore;
-            if(carGameInterval) clearInterval(carGameInterval);
-            carGameInterval = setInterval(updateCarGame, 1000/40); // 40 FPS Smooth
-            spawnEnemyCar();
-        }
+}
 
-        function spawnEnemyCar() {
-            let lanes =; // 3 Lanes
-            let randomLane = lanes[Math.floor(Math.random() * lanes.length)];
-            enemyCars.push({ x: randomLane, y: -70, color: '#e74c3c' });
-        }
+window.addEventListener("scroll",reveal);
 
-        function moveCar(dir) {
-            if(dir === 'LEFT' && playerCar.x > 30) playerCar.x -= 45;
-            if(dir === 'RIGHT' && playerCar.x < 220) playerCar.x += 45;
-        }
+reveal();
 
-        // Keyboard support for PC players
-        document.addEventListener("keydown", (e) => {
-            if(e.key === "ArrowLeft") moveCar('LEFT');
-            if(e.key === "ArrowRight") moveCar('RIGHT');
-        });
 
-        function updateCarGame() {
-            // Draw Road (Grey Background)
-            carCtx.fillStyle = "#444";
-            carCtx.fillRect(0, 0, carCanvas.width, carCanvas.height);
-            
-            // Draw Road Side Lines (Yellow border lines)
-            carCtx.fillStyle = "#f1c40f";
-            carCtx.fillRect(15, 0, 5, carCanvas.height);
-            carCtx.fillRect(280, 0, 5, carCanvas.height);
+/* ================= BACK TO TOP ================= */
 
-            // Draw White Dashed Lane Dividers
-            carCtx.strokeStyle = "#fff";
-            carCtx.setLineDash([20, 20]);
-            carCtx.lineWidth = 3;
-            carCtx.beginPath(); carCtx.moveTo(105, 0); carCtx.lineTo(105, carCanvas.height); carCtx.stroke();
-            carCtx.beginPath(); carCtx.moveTo(195, 0); carCtx.lineTo(195, carCanvas.height); carCtx.stroke();
+const topButton =
+document.getElementById("top");
 
-            // Draw Player Car (Blue Box with yellow lights)
-            carCtx.fillStyle = "#3498db";
-            carCtx.fillRect(playerCar.x, playerCar.y, carWidth, carHeight);
+window.addEventListener("scroll",function(){
+
+    if(window.scrollY > 500){
+
+        topButton.classList.add("show");
+
+    }else{
+
+        topButton.classList.remove("show");
+
+    }
+
+});
+
+
+topButton.addEventListener("click",function(){
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+
+});
+
+
+/* ================= CONTACT FORM ================= */
+
+document
+.getElementById("contactForm")
+.addEventListener("submit",function(event){
+
+    event.preventDefault();
+
+    const name =
+    document.getElementById("name").value;
+
+    const email =
+    document.getElementById("email").value;
+
+    const business =
+    document.getElementById("business").value;
+
+    const service =
+    document.getElementById("service").value;
+
+    const message =
+    document.getElementById("message").value;
+
+
+    const subject =
+    encodeURIComponent(
+        "New Project Request - HOK Creative Studio"
+    );
+
+
+    const body =
+    encodeURIComponent(
+
+        "Name: " + name +
+
+        "\nEmail: " + email +
+
+        "\nBusiness: " + business +
+
+        "\nService: " + service +
+
+        "\n\nProject Details:\n" +
+
+        message
+
+    );
+
+
+    /* CHANGE THIS EMAIL TO YOUR REAL EMAIL */
+
+    window.location.href =
+    "mailto:hello@hokcreative.studio" +
+    "?subject=" +
+    subject +
+    "&body=" +
+    body;
+
+
+    document
+    .getElementById("formMessage")
+    .style.display="block";
+
+});
+
+
+/* ================= ESC KEY MENU ================= */
+
+document.addEventListener("keydown",function(event){
+
+    if(event.key === "Escape"){
+
+        navLinks.classList.remove("active");
+
+    }
+
+});
+
+</script>
+
+
+</body>
+</html>
