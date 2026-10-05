@@ -1,2378 +1,696 @@
- <!DOCTYPE html>
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>HOK Creative Studio | Premium Digital Creative Agency</title>
-
-<meta name="description" content="HOK Creative Studio provides premium logo design, website design, social media design, video editing, e-commerce design and digital marketing creative services for USA and UK businesses.">
+<meta name="theme-color" content="#090909">
+<meta name="description" content="Apni Creative Studio — Premium graphic design, branding, social media, video editing, web design and Shopify solutions.">
+<title>Apni Creative Studio | Creative Excellence</title>
 
 <style>
-
-/* =========================================================
-   HOK CREATIVE STUDIO
-   COMPLETE ONE-FILE WEBSITE
-   HTML + CSS + JAVASCRIPT
-   ========================================================= */
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-html{
-    scroll-behavior:smooth;
-}
-
-body{
-    font-family:Arial,Helvetica,sans-serif;
-    background:#060606;
-    color:#fff;
-    line-height:1.6;
-    overflow-x:hidden;
-}
-
 :root{
-    --orange:#ff5a36;
-    --orange2:#ff8a5b;
-    --white:#fff;
-    --gray:#a5a5a5;
-    --dark:#060606;
-    --dark2:#0d0d0d;
-    --card:#111;
-    --border:rgba(255,255,255,.10);
+  --bg:#090909;
+  --panel:#121212;
+  --panel2:#181818;
+  --gold:#d6ad60;
+  --gold2:#f5d99a;
+  --text:#f7f3eb;
+  --muted:#aaa69d;
+  --line:rgba(214,173,96,.23);
+  --radius:18px;
+  --max:1180px;
 }
-
-a{
-    color:inherit;
-    text-decoration:none;
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{
+  background:var(--bg);color:var(--text);
+  font-family:Inter,Arial,Helvetica,sans-serif;
+  line-height:1.65;overflow-x:hidden
 }
-
-button,
-input,
-textarea,
-select{
-    font-family:inherit;
+body:before{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;
+  background:radial-gradient(ellipse at 80% 5%,rgba(214,173,96,.08),transparent 35%),
+  radial-gradient(ellipse at 0% 45%,rgba(214,173,96,.04),transparent 30%)
 }
-
-.container{
-    width:92%;
-    max-width:1180px;
-    margin:auto;
+a{color:inherit;text-decoration:none}
+button,input,textarea,select{font:inherit}
+button{cursor:pointer}
+img{max-width:100%;display:block}
+.container{width:min(var(--max),92%);margin:auto}
+.gold{color:var(--gold)}
+.section{padding:92px 0}
+.section-head{max-width:700px;margin:0 auto 42px;text-align:center}
+.eyebrow{
+  color:var(--gold);font-size:.75rem;letter-spacing:3px;
+  text-transform:uppercase;font-weight:800
 }
-
-section{
-    padding:110px 0;
+.section-head h2,.section-title{
+  font-size:clamp(2rem,5vw,3.35rem);line-height:1.12;
+  letter-spacing:-1.3px;margin:13px 0 17px
 }
-
-/* =========================================================
-   LOADING SCREEN
-   ========================================================= */
-
-.loader{
-    position:fixed;
-    inset:0;
-    background:#050505;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    z-index:99999;
-    transition:.6s;
-}
-
-.loader.hide{
-    opacity:0;
-    visibility:hidden;
-}
-
-.loader-logo{
-    font-size:55px;
-    font-weight:900;
-    letter-spacing:-5px;
-}
-
-.loader-logo span{
-    color:var(--orange);
-}
-
-/* =========================================================
-   NAVBAR
-   ========================================================= */
-
-header{
-    position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-    z-index:9999;
-    background:rgba(6,6,6,.78);
-    backdrop-filter:blur(18px);
-    border-bottom:1px solid rgba(255,255,255,.07);
-}
-
-nav{
-    height:78px;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-}
-
-.logo{
-    font-size:28px;
-    font-weight:900;
-    letter-spacing:-2px;
-}
-
-.logo span{
-    color:var(--orange);
-}
-
-.nav-links{
-    display:flex;
-    list-style:none;
-    align-items:center;
-    gap:30px;
-}
-
-.nav-links a{
-    color:#ccc;
-    font-size:14px;
-    transition:.3s;
-}
-
-.nav-links a:hover{
-    color:var(--orange);
-}
-
-.nav-cta{
-    background:var(--orange);
-    padding:11px 19px;
-    border-radius:30px;
-    color:white!important;
-    font-weight:bold;
-}
-
-.menu{
-    display:none;
-    font-size:30px;
-    cursor:pointer;
-}
-
-/* =========================================================
-   HERO
-   ========================================================= */
-
-.hero{
-    min-height:100vh;
-    display:flex;
-    align-items:center;
-    position:relative;
-    overflow:hidden;
-    padding-top:100px;
-}
-
-.hero-bg{
-    position:absolute;
-    width:700px;
-    height:700px;
-    background:var(--orange);
-    opacity:.11;
-    filter:blur(190px);
-    border-radius:50%;
-    right:-250px;
-    top:-200px;
-}
-
-.hero-bg2{
-    position:absolute;
-    width:400px;
-    height:400px;
-    background:#ff3000;
-    opacity:.07;
-    filter:blur(160px);
-    left:-200px;
-    bottom:-150px;
-    border-radius:50%;
-}
-
-.hero-content{
-    max-width:900px;
-    position:relative;
-    z-index:2;
-}
-
-.badge{
-    display:inline-flex;
-    align-items:center;
-    gap:8px;
-    border:1px solid rgba(255,90,54,.35);
-    background:rgba(255,90,54,.07);
-    color:var(--orange2);
-    padding:8px 15px;
-    border-radius:30px;
-    font-size:13px;
-    margin-bottom:25px;
-}
-
-.hero h1{
-    font-size:clamp(50px,8vw,96px);
-    line-height:.96;
-    letter-spacing:-6px;
-    margin-bottom:28px;
-}
-
-.hero h1 span{
-    color:var(--orange);
-}
-
-.hero p{
-    color:var(--gray);
-    font-size:18px;
-    max-width:680px;
-    margin-bottom:35px;
-}
-
-.buttons{
-    display:flex;
-    gap:15px;
-    flex-wrap:wrap;
-}
-
+.section-head p,.muted{color:var(--muted)}
 .btn{
-    display:inline-flex;
-    align-items:center;
-    justify-content:center;
-    padding:15px 24px;
-    border-radius:9px;
-    font-weight:bold;
-    border:1px solid var(--border);
-    transition:.3s;
-    cursor:pointer;
+  display:inline-flex;align-items:center;justify-content:center;gap:9px;
+  padding:13px 22px;border-radius:999px;border:1px solid var(--gold);
+  font-weight:750;transition:.25s;background:transparent;color:var(--gold)
 }
-
-.btn-primary{
-    background:var(--orange);
-    border-color:var(--orange);
+.btn:hover{transform:translateY(-3px);box-shadow:0 8px 30px #d6ad6020}
+.btn-primary{background:linear-gradient(135deg,var(--gold2),var(--gold));color:#15110a}
+.btn-small{padding:9px 15px;font-size:.88rem}
+header{
+  position:sticky;top:0;z-index:100;
+  background:rgba(9,9,9,.92);backdrop-filter:blur(16px);
+  border-bottom:1px solid var(--line)
 }
-
-.btn-primary:hover{
-    transform:translateY(-4px);
-    box-shadow:0 15px 40px rgba(255,90,54,.25);
+.nav{height:78px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.brand{display:flex;align-items:center;gap:11px;flex-shrink:0}
+.brand-mark{
+  display:grid;place-items:center;width:43px;height:43px;
+  border:1px solid var(--gold);border-radius:12px;
+  color:var(--gold);font-weight:900;font-size:1rem
 }
-
-.btn-outline:hover{
-    border-color:var(--orange);
-    color:var(--orange);
+.brand-name{font-weight:850;font-size:1rem;line-height:1.2}
+.brand-name small{display:block;color:var(--gold);font-size:.65rem;letter-spacing:2px;margin-top:5px}
+.nav-links{display:flex;align-items:center;gap:23px}
+.nav-links a{font-size:.87rem;color:#ded9ce;transition:.2s}
+.nav-links a:hover{color:var(--gold)}
+.menu-toggle{display:none;background:none;color:var(--gold);border:1px solid var(--line);padding:8px 12px;border-radius:9px}
+.hero{padding:94px 0 80px;min-height:590px;display:flex;align-items:center}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:55px;align-items:center}
+.hero h1{font-size:clamp(2.8rem,6.6vw,5.35rem);line-height:1.01;letter-spacing:-3px;margin:20px 0}
+.hero h1 span{color:var(--gold)}
+.hero-copy{font-size:1.05rem;color:var(--muted);max-width:590px}
+.hero-actions{display:flex;gap:13px;flex-wrap:wrap;margin:27px 0}
+.trust-row{display:flex;gap:23px;flex-wrap:wrap;margin-top:31px;color:#c9c2b5;font-size:.85rem}
+.trust-row span:before{content:"✦ ";color:var(--gold)}
+.hero-art{
+  min-height:405px;position:relative;border:1px solid var(--line);
+  border-radius:28px;overflow:hidden;display:grid;place-items:center;
+  background:linear-gradient(145deg,#1c1913,#0e0e0e 52%,#242015);
 }
-
-.hero-bottom{
-    display:flex;
-    gap:50px;
-    margin-top:60px;
+.hero-art:before,.hero-art:after{
+  content:"";position:absolute;border:1px solid rgba(214,173,96,.27);
+  border-radius:50%;width:330px;height:330px
 }
-
-.hero-stat strong{
-    display:block;
-    font-size:27px;
+.hero-art:after{width:250px;height:250px}
+.art-core{text-align:center;z-index:1}
+.art-core strong{font-size:clamp(5rem,12vw,8rem);line-height:1;color:var(--gold);font-family:Georgia,serif}
+.art-core p{letter-spacing:5px;font-size:.72rem;margin-top:15px}
+.art-chip{
+  position:absolute;padding:11px 14px;border:1px solid var(--line);
+  border-radius:12px;background:#111d;color:#e7d7b7;font-size:.8rem;
+  backdrop-filter:blur(8px)
 }
-
-.hero-stat span{
-    color:#777;
-    font-size:12px;
-}
-
-/* =========================================================
-   SECTION TITLES
-   ========================================================= */
-
-.section-head{
-    text-align:center;
-    max-width:720px;
-    margin:0 auto 60px;
-}
-
-.section-head small{
-    color:var(--orange);
-    text-transform:uppercase;
-    letter-spacing:3px;
-    font-size:12px;
-    font-weight:bold;
-}
-
-.section-head h2{
-    font-size:clamp(36px,5vw,58px);
-    letter-spacing:-3px;
-    line-height:1.05;
-    margin:12px 0 18px;
-}
-
-.section-head p{
-    color:var(--gray);
-}
-
-/* =========================================================
-   SERVICES
-   ========================================================= */
-
-.services{
-    background:#090909;
-}
-
-.service-grid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:20px;
-}
-
+.chip-one{top:35px;left:25px}.chip-two{right:20px;top:120px}.chip-three{bottom:35px;left:40px}
+.stats{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:25px 0}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;text-align:center}
+.stat strong{display:block;color:var(--gold);font-size:1.6rem}
+.stat span{font-size:.83rem;color:var(--muted)}
+.service-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:17px}
 .service-card{
-    background:linear-gradient(145deg,#141414,#0b0b0b);
-    border:1px solid var(--border);
-    border-radius:20px;
-    padding:32px;
-    position:relative;
-    overflow:hidden;
-    transition:.35s;
+  padding:25px;background:linear-gradient(145deg,#151515,#0f0f0f);
+  border:1px solid #27241e;border-radius:var(--radius);
+  transition:transform .25s,border-color .25s
 }
-
-.service-card:hover{
-    transform:translateY(-8px);
-    border-color:rgba(255,90,54,.45);
+.service-card:hover{transform:translateY(-5px);border-color:var(--gold)}
+.service-icon{
+  width:47px;height:47px;display:grid;place-items:center;
+  border-radius:13px;background:#d6ad6014;border:1px solid var(--line);
+  font-size:1.4rem;margin-bottom:17px
 }
-
-.service-card:after{
-    content:"";
-    position:absolute;
-    width:130px;
-    height:130px;
-    background:var(--orange);
-    filter:blur(90px);
-    opacity:0;
-    right:-50px;
-    top:-50px;
-    transition:.4s;
+.service-card h3{font-size:1.08rem;margin-bottom:8px}
+.service-card p{font-size:.9rem;color:var(--muted);margin-bottom:18px}
+.text-link{font-size:.88rem;color:var(--gold);font-weight:750}
+.service-card .text-link:hover{text-decoration:underline}
+.pricing-tabs{display:flex;justify-content:center;gap:9px;flex-wrap:wrap;margin-bottom:32px}
+.tab{
+  border:1px solid var(--line);background:#121212;color:#c8c0b1;
+  border-radius:999px;padding:11px 19px;font-weight:750
 }
-
-.service-card:hover:after{
-    opacity:.22;
-}
-
-.icon{
-    width:58px;
-    height:58px;
-    border-radius:16px;
-    background:rgba(255,90,54,.11);
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    font-size:27px;
-    margin-bottom:22px;
-}
-
-.service-card h3{
-    font-size:21px;
-    margin-bottom:12px;
-}
-
-.service-card p{
-    color:#999;
-    font-size:14px;
-}
-
-/* =========================================================
-   ABOUT
-   ========================================================= */
-
-.about-grid{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:70px;
-    align-items:center;
-}
-
-.about-text h2{
-    font-size:clamp(40px,5vw,65px);
-    line-height:1;
-    letter-spacing:-3px;
-    margin-bottom:25px;
-}
-
-.about-text h2 span{
-    color:var(--orange);
-}
-
-.about-text p{
-    color:var(--gray);
-    margin-bottom:16px;
-}
-
-.about-box{
-    margin-top:30px;
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:15px;
-}
-
-.about-stat{
-    background:#101010;
-    border:1px solid var(--border);
-    padding:22px;
-    border-radius:15px;
-}
-
-.about-stat strong{
-    display:block;
-    color:var(--orange);
-    font-size:30px;
-}
-
-.about-stat span{
-    color:#888;
-    font-size:13px;
-}
-
-.about-art{
-    min-height:470px;
-    border:1px solid var(--border);
-    border-radius:28px;
-    background:
-        radial-gradient(circle at 70% 25%,rgba(255,90,54,.35),transparent 30%),
-        linear-gradient(135deg,#181818,#080808);
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    position:relative;
-    overflow:hidden;
-}
-
-.big-logo{
-    font-size:120px;
-    font-weight:900;
-    letter-spacing:-12px;
-}
-
-.big-logo span{
-    color:var(--orange);
-}
-
-.circle{
-    position:absolute;
-    width:300px;
-    height:300px;
-    border:1px solid rgba(255,255,255,.08);
-    border-radius:50%;
-    animation:rotate 15s linear infinite;
-}
-
-.circle2{
-    width:420px;
-    height:420px;
-}
-
-@keyframes rotate{
-    from{transform:rotate(0deg)}
-    to{transform:rotate(360deg)}
-}
-
-/* =========================================================
-   PORTFOLIO
-   ========================================================= */
-
-.portfolio{
-    background:#090909;
-}
-
-.portfolio-grid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:20px;
-}
-
-.work{
-    height:300px;
-    border-radius:20px;
-    overflow:hidden;
-    border:1px solid var(--border);
-    position:relative;
-    background:#151515;
-}
-
-.work-bg{
-    position:absolute;
-    inset:0;
-    transition:.5s;
-}
-
-.work:hover .work-bg{
-    transform:scale(1.08);
-}
-
-.work:nth-child(1) .work-bg{
-    background:
-        radial-gradient(circle at 30% 30%,#ff6947,transparent 25%),
-        linear-gradient(135deg,#21110c,#090909);
-}
-
-.work:nth-child(2) .work-bg{
-    background:
-        radial-gradient(circle at 70% 25%,#5b91ff,transparent 25%),
-        linear-gradient(135deg,#10182b,#080808);
-}
-
-.work:nth-child(3) .work-bg{
-    background:
-        radial-gradient(circle at 40% 30%,#a95cff,transparent 25%),
-        linear-gradient(135deg,#1a0e24,#080808);
-}
-
-.work:nth-child(4) .work-bg{
-    background:
-        radial-gradient(circle at 60% 25%,#36e1a0,transparent 25%),
-        linear-gradient(135deg,#0c211b,#080808);
-}
-
-.work:nth-child(5) .work-bg{
-    background:
-        radial-gradient(circle at 40% 20%,#ffc34d,transparent 25%),
-        linear-gradient(135deg,#21180a,#080808);
-}
-
-.work:nth-child(6) .work-bg{
-    background:
-        radial-gradient(circle at 65% 25%,#ff466f,transparent 25%),
-        linear-gradient(135deg,#210b13,#080808);
-}
-
-.work-content{
-    position:absolute;
-    bottom:0;
-    left:0;
-    width:100%;
-    padding:25px;
-    background:linear-gradient(transparent,rgba(0,0,0,.95));
-}
-
-.work-content small{
-    color:var(--orange2);
-}
-
-.work-content h3{
-    font-size:21px;
-}
-
-/* =========================================================
-   PROCESS
-   ========================================================= */
-
-.process-grid{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:20px;
-}
-
-.process-card{
-    padding:30px;
-    background:var(--card);
-    border:1px solid var(--border);
-    border-radius:18px;
-}
-
-.process-number{
-    font-size:45px;
-    color:var(--orange);
-    font-weight:900;
-}
-
-.process-card h3{
-    margin:12px 0;
-}
-
-.process-card p{
-    color:#888;
-    font-size:14px;
-}
-
-/* =========================================================
-   PRICING
-   ========================================================= */
-
-.pricing{
-    background:#090909;
-}
-
-.price-grid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:20px;
-}
-
+.tab.active{background:var(--gold);color:#16120b;border-color:var(--gold)}
+.pricing-note{text-align:center;color:var(--muted);font-size:.84rem;margin-top:-15px;margin-bottom:30px}
+.pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;align-items:stretch}
 .price-card{
-    background:#111;
-    border:1px solid var(--border);
-    border-radius:20px;
-    padding:35px;
-    position:relative;
+  position:relative;background:linear-gradient(160deg,#191713,#101010 65%);
+  border:1px solid #343027;border-radius:20px;padding:29px;
+  display:flex;flex-direction:column
 }
-
-.price-card.popular{
-    border-color:var(--orange);
-    transform:scale(1.03);
+.price-card.featured{border-color:var(--gold);box-shadow:0 0 40px #d6ad6010}
+.popular{
+  position:absolute;top:-13px;right:20px;background:var(--gold);
+  color:#17120a;border-radius:999px;padding:4px 12px;font-size:.7rem;font-weight:900
 }
-
-.popular-tag{
-    position:absolute;
-    top:-13px;
-    right:20px;
-    background:var(--orange);
-    padding:6px 14px;
-    border-radius:30px;
-    font-size:10px;
-    font-weight:bold;
+.price-card h3{font-size:1.2rem}
+.price-card .desc{font-size:.88rem;color:var(--muted);margin:8px 0 19px}
+.price{font-size:2.8rem;font-weight:900;letter-spacing:-1.5px;color:var(--gold);line-height:1.3}
+.price small{font-size:.83rem;color:var(--muted);font-weight:500;letter-spacing:0}
+.price-card ul{list-style:none;margin:22px 0 25px;flex:1}
+.price-card li{padding:8px 0;border-bottom:1px solid #ffffff0c;font-size:.89rem;color:#d5cfc4}
+.price-card li:before{content:"✓";color:var(--gold);margin-right:10px}
+.price-card .btn{width:100%}
+.custom-note{text-align:center;color:var(--muted);margin-top:25px;font-size:.9rem}
+.portfolio-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.portfolio-card{
+  min-height:260px;position:relative;overflow:hidden;border-radius:18px;
+  border:1px solid var(--line);background:#151515;display:flex;align-items:end
 }
-
-.price-card h3{
-    font-size:24px;
+.portfolio-visual{
+  position:absolute;inset:0;display:grid;place-items:center;
+  font-size:4.5rem;transition:transform .5s
 }
-
-.price{
-    font-size:45px;
-    font-weight:900;
-    margin:12px 0;
+.portfolio-card:hover .portfolio-visual{transform:scale(1.07)}
+.portfolio-card:nth-child(1) .portfolio-visual{background:radial-gradient(circle at 50% 30%,#665126,#20190e 70%)}
+.portfolio-card:nth-child(2) .portfolio-visual{background:radial-gradient(circle at 50% 30%,#592e67,#1c1123 70%)}
+.portfolio-card:nth-child(3) .portfolio-visual{background:radial-gradient(circle at 50% 30%,#25575a,#101c1d 70%)}
+.portfolio-card:nth-child(4) .portfolio-visual{background:radial-gradient(circle at 50% 30%,#70422b,#21140f 70%)}
+.portfolio-card:nth-child(5) .portfolio-visual{background:radial-gradient(circle at 50% 30%,#4b4b65,#14141e 70%)}
+.portfolio-card:nth-child(6) .portfolio-visual{background:radial-gradient(circle at 50% 30%,#6b5527,#211c10 70%)}
+.portfolio-info{position:relative;width:100%;padding:40px 20px 19px;background:linear-gradient(transparent,#080808ed)}
+.portfolio-info small{color:var(--gold)}
+.portfolio-info h3{font-size:1.12rem}
+.process-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.process-card{padding:23px;border-top:1px solid var(--gold);background:#111;border-radius:0 0 15px 15px}
+.process-number{color:var(--gold);font-size:1.8rem;font-weight:900}
+.process-card h3{font-size:1rem;margin:10px 0 7px}
+.process-card p{color:var(--muted);font-size:.87rem}
+.about-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:45px;align-items:center}
+.about-panel{
+  min-height:300px;display:grid;place-items:center;border-radius:22px;
+  border:1px solid var(--line);background:linear-gradient(140deg,#211b10,#0e0e0e)
 }
-
-.price small{
-    color:#777;
-    font-size:13px;
+.about-panel span{font-size:7rem;font-family:Georgia,serif;color:var(--gold)}
+.about-copy p{color:var(--muted);margin:15px 0}
+.about-points{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:22px}
+.about-points span{color:#e5dccb;font-size:.9rem}
+.about-points span:before{content:"✦ ";color:var(--gold)}
+.faq-list{max-width:800px;margin:auto;display:grid;gap:12px}
+details{border:1px solid #302b21;border-radius:13px;background:#111;padding:17px 20px}
+summary{cursor:pointer;font-weight:750}
+details p{color:var(--muted);font-size:.92rem;padding-top:12px}
+.contact-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:28px}
+.contact-info,.form-panel{padding:28px;background:#121212;border:1px solid #2b281f;border-radius:20px}
+.contact-info h3,.form-panel h3{font-size:1.3rem;margin-bottom:12px}
+.contact-info p{color:var(--muted);margin-bottom:22px}
+.contact-item{padding:14px 0;border-bottom:1px solid #ffffff10}
+.contact-item strong{display:block;color:var(--gold);font-size:.8rem}
+.contact-item span{font-size:.92rem;overflow-wrap:anywhere}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:15px}
+.field{display:flex;flex-direction:column;gap:7px}
+.field.full{grid-column:1/-1}
+.field label{font-size:.85rem;color:#ddd4c4}
+.field input,.field select,.field textarea{
+  width:100%;background:#0b0b0b;color:#f7f3eb;
+  border:1px solid #373126;border-radius:10px;padding:12px 13px;outline:none
 }
-
-.price-card p{
-    color:#888;
-}
-
-.price-list{
-    list-style:none;
-    margin:25px 0;
-}
-
-.price-list li{
-    color:#ccc;
-    font-size:14px;
-    padding:8px 0;
-}
-
-.price-list li:before{
-    content:"✓";
-    color:var(--orange);
-    margin-right:10px;
-}
-
-.price-card .btn{
-    width:100%;
-}
-
-/* =========================================================
-   TESTIMONIALS
-   ========================================================= */
-
-.testimonial-grid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:20px;
-}
-
-.testimonial{
-    padding:30px;
-    border:1px solid var(--border);
-    background:#101010;
-    border-radius:18px;
-}
-
-.stars{
-    color:#ffc400;
-    letter-spacing:3px;
-    margin-bottom:15px;
-}
-
-.testimonial p{
-    color:#aaa;
-    font-size:14px;
-    margin-bottom:20px;
-}
-
-.client{
-    font-weight:bold;
-}
-
-.client span{
-    display:block;
-    color:#777;
-    font-size:12px;
-    font-weight:normal;
-}
-
-/* =========================================================
-   FAQ
-   ========================================================= */
-
-.faq{
-    max-width:850px;
-    margin:auto;
-}
-
-details{
-    background:#101010;
-    border:1px solid var(--border);
-    border-radius:13px;
-    padding:20px;
-    margin-bottom:12px;
-}
-
-summary{
-    cursor:pointer;
-    font-weight:bold;
-}
-
-details p{
-    color:#999;
-    font-size:14px;
-    padding-top:15px;
-}
-
-/* =========================================================
-   CONTACT
-   ========================================================= */
-
-.contact{
-    background:
-        radial-gradient(circle at center,rgba(255,90,54,.12),transparent 40%),
-        #070707;
-}
-
-.contact-wrap{
-    max-width:850px;
-    margin:auto;
-}
-
-.contact-form{
-    display:grid;
-    gap:15px;
-}
-
-.form-row{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:15px;
-}
-
-input,
-textarea,
-select{
-    width:100%;
-    background:#111;
-    color:white;
-    border:1px solid var(--border);
-    border-radius:10px;
-    padding:16px;
-    outline:none;
-}
-
-input:focus,
-textarea:focus,
-select:focus{
-    border-color:var(--orange);
-}
-
-textarea{
-    min-height:160px;
-    resize:vertical;
-}
-
-select{
-    cursor:pointer;
-}
-
-.form-message{
-    display:none;
-    background:rgba(37,211,102,.1);
-    border:1px solid rgba(37,211,102,.3);
-    color:#7cffad;
-    padding:15px;
-    border-radius:10px;
-}
-
-/* =========================================================
-   FOOTER
-   ========================================================= */
-
-footer{
-    border-top:1px solid var(--border);
-    padding:55px 0 25px;
-    background:#050505;
-}
-
-.footer-grid{
-    display:grid;
-    grid-template-columns:2fr 1fr 1fr 1fr;
-    gap:40px;
-    padding-bottom:40px;
-}
-
-.footer-logo{
-    font-size:30px;
-    font-weight:900;
-}
-
-.footer-logo span{
-    color:var(--orange);
-}
-
-.footer-grid p{
-    color:#777;
-    max-width:350px;
-    margin-top:15px;
-    font-size:14px;
-}
-
-.footer-grid h3{
-    margin-bottom:15px;
-}
-
-.footer-links{
-    display:flex;
-    flex-direction:column;
-    gap:9px;
-}
-
-.footer-links a{
-    color:#888;
-    font-size:14px;
-    transition:.3s;
-}
-
-.footer-links a:hover{
-    color:var(--orange);
-}
-
-.socials{
-    display:flex;
-    gap:10px;
-    margin-top:20px;
-}
-
-.social{
-    width:40px;
-    height:40px;
-    border:1px solid var(--border);
-    border-radius:50%;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    transition:.3s;
-}
-
-.social:hover{
-    border-color:var(--orange);
-    color:var(--orange);
-}
-
-.copyright{
-    border-top:1px solid var(--border);
-    padding-top:20px;
-    display:flex;
-    justify-content:space-between;
-    color:#555;
-    font-size:12px;
-}
-
-/* =========================================================
-   WHATSAPP
-   ========================================================= */
-
+.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--gold)}
+.field textarea{resize:vertical;min-height:125px}
+.form-submit{margin-top:18px;width:100%}
+.form-hint{font-size:.78rem;color:var(--muted);margin-top:12px}
+footer{border-top:1px solid var(--line);padding:35px 0}
+.footer-inner{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.footer-copy{font-size:.84rem;color:var(--muted)}
+.footer-links{display:flex;gap:17px;flex-wrap:wrap;font-size:.85rem;color:#d5cdbc}
+.footer-links a:hover{color:var(--gold)}
 .whatsapp{
-    position:fixed;
-    right:22px;
-    bottom:22px;
-    width:60px;
-    height:60px;
-    border-radius:50%;
-    background:#25d366;
-    color:white;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:28px;
-    z-index:9998;
-    box-shadow:0 10px 35px rgba(37,211,102,.25);
-    transition:.3s;
+  position:fixed;right:22px;bottom:22px;z-index:200;
+  width:57px;height:57px;border-radius:50%;display:grid;place-items:center;
+  background:#25d366;color:white;font-size:1.8rem;
+  box-shadow:0 8px 28px #0009;border:2px solid #ffffff30;
+  transition:transform .2s
 }
-
-.whatsapp:hover{
-    transform:scale(1.1);
+.whatsapp:hover{transform:scale(1.08)}
+.toast{
+  position:fixed;left:50%;bottom:25px;transform:translate(-50%,150%);
+  z-index:300;background:#1b1914;border:1px solid var(--gold);
+  color:var(--text);padding:13px 19px;border-radius:12px;
+  max-width:90%;transition:transform .3s
 }
-
-/* =========================================================
-   BACK TO TOP
-   ========================================================= */
-
-.top{
-    position:fixed;
-    right:22px;
-    bottom:95px;
-    width:45px;
-    height:45px;
-    border:1px solid var(--border);
-    background:#111;
-    color:white;
-    border-radius:50%;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    cursor:pointer;
-    opacity:0;
-    visibility:hidden;
-    transition:.3s;
-    z-index:9997;
+.toast.show{transform:translate(-50%,0)}
+@media(max-width:980px){
+  .nav-links{gap:13px}
+  .nav-links a{font-size:.8rem}
+  .hero-grid{gap:30px}
+  .service-grid{grid-template-columns:repeat(2,1fr)}
+  .pricing-grid{grid-template-columns:repeat(2,1fr)}
+  .price-card:last-child{grid-column:1/-1}
+  .process-grid{grid-template-columns:repeat(2,1fr)}
 }
-
-.top.show{
-    opacity:1;
-    visibility:visible;
+@media(max-width:760px){
+  .section{padding:68px 0}
+  .nav{height:70px}
+  .menu-toggle{display:block}
+  .nav-links{
+    display:none;position:absolute;top:70px;left:0;right:0;
+    background:#0e0e0e;border-bottom:1px solid var(--line);
+    padding:18px 4%;align-items:stretch;flex-direction:column;gap:0
+  }
+  .nav-links.open{display:flex}
+  .nav-links a{padding:11px 0;font-size:.95rem}
+  .nav-links .btn{margin-top:8px}
+  .hero{padding:65px 0 55px}
+  .hero-grid{grid-template-columns:1fr}
+  .hero-art{min-height:300px}
+  .hero h1{letter-spacing:-1.8px}
+  .stats-grid{grid-template-columns:repeat(2,1fr);row-gap:25px}
+  .portfolio-grid{grid-template-columns:repeat(2,1fr)}
+  .about-grid,.contact-grid{grid-template-columns:1fr}
+  .about-panel{min-height:220px}
 }
-
-/* =========================================================
-   ANIMATION
-   ========================================================= */
-
-.reveal{
-    opacity:0;
-    transform:translateY(35px);
-    transition:1s;
+@media(max-width:520px){
+  .brand-name{font-size:.9rem}
+  .hero-actions .btn{width:100%}
+  .service-grid,.pricing-grid,.portfolio-grid,.process-grid{grid-template-columns:1fr}
+  .price-card:last-child{grid-column:auto}
+  .portfolio-card{min-height:240px}
+  .form-grid{grid-template-columns:1fr}
+  .field.full{grid-column:auto}
+  .about-points{grid-template-columns:1fr}
+  .whatsapp{right:15px;bottom:15px;width:52px;height:52px}
+  .section-head h2{letter-spacing:-.7px}
 }
-
-.reveal.active{
-    opacity:1;
-    transform:translateY(0);
+@media(prefers-reduced-motion:reduce){
+  *,*:before,*:after{scroll-behavior:auto!important;transition:none!important}
 }
-
-/* =========================================================
-   RESPONSIVE
-   ========================================================= */
-
-@media(max-width:950px){
-
-    .service-grid,
-    .portfolio-grid,
-    .price-grid,
-    .testimonial-grid{
-        grid-template-columns:repeat(2,1fr);
-    }
-
-    .process-grid{
-        grid-template-columns:repeat(2,1fr);
-    }
-
-    .about-grid{
-        grid-template-columns:1fr;
-    }
-
-    .footer-grid{
-        grid-template-columns:2fr 1fr 1fr;
-    }
-
-}
-
-@media(max-width:700px){
-
-    section{
-        padding:80px 0;
-    }
-
-    .menu{
-        display:block;
-    }
-
-    .nav-links{
-        position:absolute;
-        top:78px;
-        left:0;
-        width:100%;
-        background:#080808;
-        flex-direction:column;
-        padding:25px;
-        gap:20px;
-        display:none;
-        border-bottom:1px solid var(--border);
-    }
-
-    .nav-links.active{
-        display:flex;
-    }
-
-    .hero h1{
-        font-size:55px;
-        letter-spacing:-4px;
-    }
-
-    .hero p{
-        font-size:16px;
-    }
-
-    .hero-bottom{
-        gap:25px;
-        flex-wrap:wrap;
-    }
-
-    .service-grid,
-    .portfolio-grid,
-    .price-grid,
-    .testimonial-grid,
-    .process-grid{
-        grid-template-columns:1fr;
-    }
-
-    .price-card.popular{
-        transform:none;
-    }
-
-    .form-row{
-        grid-template-columns:1fr;
-    }
-
-    .footer-grid{
-        grid-template-columns:1fr;
-    }
-
-    .copyright{
-        flex-direction:column;
-        gap:8px;
-    }
-
-    .about-art{
-        min-height:350px;
-    }
-
-    .big-logo{
-        font-size:80px;
-    }
-
-}
-
 </style>
 </head>
 
-
 <body>
-
-
-<!-- =========================================================
-     LOADER
-     ========================================================= -->
-
-<div class="loader" id="loader">
-    <div class="loader-logo">
-        H<span>OK</span>
-    </div>
-</div>
-
-
-<!-- =========================================================
-     HEADER
-     ========================================================= -->
-
 <header>
-
-<div class="container">
-
-<nav>
-
-<a href="#home" class="logo">
-    HOK<span>.</span>
-</a>
-
-<ul class="nav-links" id="navLinks">
-
-<li><a href="#home">Home</a></li>
-<li><a href="#services">Services</a></li>
-<li><a href="#about">About</a></li>
-<li><a href="#portfolio">Portfolio</a></li>
-<li><a href="#pricing">Pricing</a></li>
-<li><a href="#process">Process</a></li>
-<li><a href="#contact" class="nav-cta">Let's Talk</a></li>
-
-</ul>
-
-<div class="menu" id="menu">
-    ☰
-</div>
-
-</nav>
-
-</div>
-
+  <div class="container nav">
+    <a class="brand" href="#home" aria-label="Apni Creative Studio home">
+      <span class="brand-mark">ACS</span>
+      <span class="brand-name">APNI CREATIVE STUDIO<small>DESIGN · CREATE · GROW</small></span>
+    </a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation" aria-expanded="false">☰ Menu</button>
+    <nav class="nav-links" id="navLinks" aria-label="Main navigation">
+      <a href="#home">Home</a>
+      <a href="#services">Services</a>S
+      <a href="#pricing">Pricing</a>
+      <a href="#portfolio">Portfolio</a>
+      <a href="#about">About</a>
+      <a href="#contact" class="btn btn-small">Let's Talk ↗</a>
+    </nav>
+  </div>
 </header>
 
-
-<!-- =========================================================
-     HERO
-     ========================================================= -->
-
+<main>
 <section class="hero" id="home">
-
-<div class="hero-bg"></div>
-<div class="hero-bg2"></div>
-
-<div class="container">
-
-<div class="hero-content reveal">
-
-<div class="badge">
-    ✦ Creative Studio for USA & UK Businesses
-</div>
-
-<h1>
-    We Build Brands
-    <br>
-    That <span>Stand Out.</span>
-</h1>
-
-<p>
-    HOK Creative Studio helps businesses build powerful
-    digital brands with premium logo design, websites,
-    social media creatives, video editing, e-commerce
-    design and marketing content.
-</p>
-
-<div class="buttons">
-
-<a href="#contact" class="btn btn-primary">
-    Start Your Project →
-</a>
-
-<a href="#portfolio" class="btn btn-outline">
-    View Portfolio
-</a>
-
-</div>
-
-<div class="hero-bottom">
-
-<div class="hero-stat">
-    <strong>100+</strong>
-    <span>Projects</span>
-</div>
-
-<div class="hero-stat">
-    <strong>50+</strong>
-    <span>Clients</span>
-</div>
-
-<div class="hero-stat">
-    <strong>USA / UK</strong>
-    <span>Target Market</span>
-</div>
-
-</div>
-
-</div>
-
-</div>
-
+  <div class="container hero-grid">
+    <div>
+      <span class="eyebrow">Creative solutions for ambitious brands</span>
+      <h1>Make Your Brand <span>Impossible</span> to Ignore.</h1>
+      <p class="hero-copy">From standout logos and scroll-stopping social content to powerful websites and Shopify stores, we turn your ideas into a brand people remember.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#services">Explore Our Services ↗</a>
+        <a class="btn" href="#pricing">View Pricing</a>
+      </div>
+      <div class="trust-row">
+        <span>Creative-first thinking</span>
+        <span>Brand-focused design</span>
+        <span>Flexible packages</span>
+      </div>
+    </div>
+    <div class="hero-art" aria-label="Apni Creative Studio brand artwork">
+      <span class="art-chip chip-one">✦ Brand Identity</span>
+      <span class="art-chip chip-two">Digital Experiences ↗</span>
+      <span class="art-chip chip-three">Ideas into Impact</span>
+      <div class="art-core"><strong>A.</strong><p>APNI CREATIVE STUDIO</p></div>
+    </div>
+  </div>
 </section>
 
-
-<!-- =========================================================
-     SERVICES
-     ========================================================= -->
-
-<section class="services" id="services">
-
-<div class="container">
-
-<div class="section-head reveal">
-
-<small>What We Do</small>
-
-<h2>
-    Everything Your Brand Needs
-</h2>
-
-<p>
-    From your first logo to a complete digital presence,
-    we provide creative services under one roof.
-</p>
-
-</div>
-
-
-<div class="service-grid">
-
-
-<div class="service-card reveal">
-
-<div class="icon">✦</div>
-
-<h3>Logo & Brand Identity</h3>
-
-<p>
-    Professional logo design, brand colors,
-    typography, business cards and complete
-    visual identity systems.
-</p>
-
-</div>
-
-
-<div class="service-card reveal">
-
-<div class="icon">⌘</div>
-
-<h3>Website Design</h3>
-
-<p>
-    Modern responsive websites designed to
-    build trust and turn visitors into customers.
-</p>
-
-</div>
-
-
-<div class="service-card reveal">
-
-<div class="icon">◎</div>
-
-<h3>Social Media Design</h3>
-
-<p>
-    Instagram, Facebook, TikTok and YouTube
-    designs that make your business look premium.
-</p>
-
-</div>
-
-
-<div class="service-card reveal">
-
-<div class="icon">▶</div>
-
-<h3>Video Editing</h3>
-
-<p>
-    Reels, Shorts, YouTube videos, product
-    advertisements and cinematic promotional videos.
-</p>
-
-</div>
-
-
-<div class="service-card reveal">
-
-<div class="icon">🛒</div>
-
-<h3>E-Commerce Design</h3>
-
-<p>
-    Shopify graphics, product images, banners,
-    Amazon creatives and online store designs.
-</p>
-
-</div>
-
-
-<div class="service-card reveal">
-
-<div class="icon">↗</div>
-
-<h3>Digital Marketing Creative</h3>
-
-<p>
-    Advertising creatives, social media campaigns
-    and promotional graphics built for conversions.
-</p>
-
-</div>
-
-
-<div class="service-card reveal">
-
-<div class="icon">▣</div>
-
-<h3>YouTube Design</h3>
-
-<p>
-    YouTube thumbnails, channel branding,
-    banners and video graphics.
-</p>
-
-</div>
-
-
-<div class="service-card reveal">
-
-<div class="icon">◉</div>
-
-<h3>Facebook Design</h3>
-
-<p>
-    Facebook cover designs, ads, posts,
-    promotional banners and business graphics.
-</p>
-
-</div>
-
-
-<div class="service-card reveal">
-
-<div class="icon">◆</div>
-
-<h3>Complete Business Branding</h3>
-
-<p>
-    A complete visual system for businesses
-    that want a strong and professional identity.
-</p>
-
-</div>
-
-
-</div>
-
-</div>
-
+<section class="stats">
+  <div class="container stats-grid">
+    <div class="stat"><strong>360°</strong><span>Creative Services</span></div>
+    <div class="stat"><strong>01</strong><span>Creative Partner</span></div>
+    <div class="stat"><strong>∞</strong><span>Ideas to Explore</span></div>
+    <div class="stat"><strong>24/7</strong><span>Online Enquiries</span></div>
+  </div>
 </section>
 
-
-<!-- =========================================================
-     ABOUT
-     ========================================================= -->
-
-<section id="about">
-
-<div class="container">
-
-<div class="about-grid">
-
-<div class="about-text reveal">
-
-<h2>
-    Creative Ideas.
-    <br>
-    <span>Real Results.</span>
-</h2>
-
-<p>
-    HOK Creative Studio is a digital creative agency
-    focused on helping businesses create professional
-    brands and strong online experiences.
-</p>
-
-<p>
-    We combine creative design, strategy and modern
-    digital solutions to help businesses stand out
-    in competitive markets.
-</p>
-
-<div class="about-box">
-
-<div class="about-stat">
-    <strong>100+</strong>
-    <span>Creative Projects</span>
-</div>
-
-<div class="about-stat">
-    <strong>50+</strong>
-    <span>Happy Clients</span>
-</div>
-
-<div class="about-stat">
-    <strong>24/7</strong>
-    <span>Communication</span>
-</div>
-
-<div class="about-stat">
-    <strong>USA/UK</strong>
-    <span>Target Clients</span>
-</div>
-
-</div>
-
-</div>
-
-
-<div class="about-art reveal">
-
-<div class="circle"></div>
-<div class="circle circle2"></div>
-
-<div class="big-logo">
-    H<span>OK</span>
-</div>
-
-</div>
-
-</div>
-
-</div>
-
+<section class="section" id="services">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">What we do</span>
+      <h2>Everything Your Brand Needs, <span class="gold">In One Studio.</span></h2>
+      <p>Choose an individual service or combine creative solutions into a package that fits your goals.</p>
+    </div>
+    <div class="service-grid">
+      <article class="service-card"><div class="service-icon">✒️</div><h3>Logo Design & Branding</h3><p>Distinctive logos, brand marks, color palettes, typography and brand identity guidelines.</p><a class="text-link order-service" href="#contact" data-service="Logo Design & Branding">Order logo design ↗</a></article>
+      <article class="service-card"><div class="service-icon">🎨</div><h3>Graphic Design</h3><p>Flyers, posters, brochures, banners, business documents and promotional creatives.</p><a class="text-link order-service" href="#contact" data-service="Graphic Design">Order graphic design ↗</a></article>
+      <article class="service-card"><div class="service-icon">📘</div><h3>Facebook Design</h3><p>Facebook covers, posts, ad creatives, page visuals and branded campaign graphics.</p><a class="text-link order-service" href="#contact" data-service="Facebook Design">Order Facebook designs ↗</a></article>
+      <article class="service-card"><div class="service-icon">📸</div><h3>Instagram Content</h3><p>Post designs, story templates, carousel graphics, highlights and launch campaigns.</p><a class="text-link order-service" href="#contact" data-service="Instagram Content">Order Instagram content ↗</a></article>
+      <article class="service-card"><div class="service-icon">🎬</div><h3>YouTube Design</h3><p>Eye-catching thumbnails, channel banners, profile branding and video graphics.</p><a class="text-link order-service" href="#contact" data-service="YouTube Design">Order YouTube design ↗</a></article>
+      <article class="service-card"><div class="service-icon">🎵</div><h3>TikTok Creative Content</h3><p>Short-form video edits, covers, promotional graphics and branded vertical content.</p><a class="text-link order-service" href="#contact" data-service="TikTok Creative Content">Order TikTok content ↗</a></article>
+      <article class="service-card"><div class="service-icon">💍</div><h3>Wedding & Invitation Cards</h3><p>Elegant wedding invitations, save-the-date cards, event invites and digital invitations.</p><a class="text-link order-service" href="#contact" data-service="Wedding & Invitation Cards">Order invitation design ↗</a></article>
+      <article class="service-card"><div class="service-icon">💳</div><h3>Business Cards</h3><p>Premium business cards, stationery, letterheads and coordinated business branding.</p><a class="text-link order-service" href="#contact" data-service="Business Cards">Order business cards ↗</a></article>
+      <article class="service-card"><div class="service-icon">📦</div><h3>Product & Packaging Design</h3><p>Product labels, packaging concepts, promotional product visuals and mockups.</p><a class="text-link order-service" href="#contact" data-service="Product & Packaging Design">Order product design ↗</a></article>
+      <article class="service-card"><div class="service-icon">✂️</div><h3>Video Editing</h3><p>Reels, Shorts, TikToks, promotional videos, captions, transitions and branded edits.</p><a class="text-link order-service" href="#contact" data-service="Video Editing">Order video editing ↗</a></article>
+      <article class="service-card"><div class="service-icon">📣</div><h3>Ads & Ad Creatives</h3><p>Campaign graphics for Facebook, Instagram, TikTok and other digital advertising channels.</p><a class="text-link order-service" href="#contact" data-service="Ads & Ad Creatives">Order ad creatives ↗</a></article>
+      <article class="service-card"><div class="service-icon">💻</div><h3>Website Design</h3><p>Modern, responsive business websites and landing pages built around your brand.</p><a class="text-link order-service" href="#contact" data-service="Website Design">Order website design ↗</a></article>
+      <article class="service-card"><div class="service-icon">🛍️</div><h3>Shopify Store Design</h3><p>Storefront design, product pages, collection layouts and ecommerce brand styling.</p><a class="text-link order-service" href="#contact" data-service="Shopify Store Design">Order Shopify design ↗</a></article>
+      <article class="service-card"><div class="service-icon">🧑‍💼</div><h3>Profile & Channel Branding</h3><p>Coordinated profile pictures, banners, cover art and brand kits for online platforms.</p><a class="text-link order-service" href="#contact" data-service="Profile & Channel Branding">Order profile branding ↗</a></article>
+      <article class="service-card"><div class="service-icon">🖨️</div><h3>Print & Marketing Materials</h3><p>Menus, restaurant designs, brochures, posters, event banners and print-ready artwork.</p><a class="text-link order-service" href="#contact" data-service="Print & Marketing Materials">Order marketing design ↗</a></article>
+    </div>
+  </div>
 </section>
 
-
-<!-- =========================================================
-     PORTFOLIO
-     ========================================================= -->
-
-<section class="portfolio" id="portfolio">
-
-<div class="container">
-
-<div class="section-head reveal">
-
-<small>Our Work</small>
-
-<h2>
-    Selected Projects
-</h2>
-
-<p>
-    A preview of the creative work HOK Creative Studio
-    can create for modern businesses.
-</p>
-
-</div>
-
-
-<div class="portfolio-grid">
-
-
-<div class="work reveal">
-
-<div class="work-bg"></div>
-
-<div class="work-content">
-<small>Brand Identity</small>
-<h3>Modern Business Branding</h3>
-</div>
-
-</div>
-
-
-<div class="work reveal">
-
-<div class="work-bg"></div>
-
-<div class="work-content">
-<small>E-Commerce</small>
-<h3>Online Store Design</h3>
-</div>
-
-</div>
-
-
-<div class="work reveal">
-
-<div class="work-bg"></div>
-
-<div class="work-content">
-<small>Website Design</small>
-<h3>Corporate Website</h3>
-</div>
-
-</div>
-
-
-<div class="work reveal">
-
-<div class="work-bg"></div>
-
-<div class="work-content">
-<small>Social Media</small>
-<h3>Instagram Campaign</h3>
-</div>
-
-</div>
-
-
-<div class="work reveal">
-
-<div class="work-bg"></div>
-
-<div class="work-content">
-<small>Video Editing</small>
-<h3>Product Advertisement</h3>
-</div>
-
-</div>
-
-
-<div class="work reveal">
-
-<div class="work-bg"></div>
-
-<div class="work-content">
-<small>Marketing</small>
-<h3>Digital Ad Campaign</h3>
-</div>
-
-</div>
-
-
-</div>
-
-</div>
-
+<section class="section" id="pricing">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Simple packages</span>
+      <h2>Choose Your <span class="gold">Creative Plan.</span></h2>
+      <p>Compare weekly, monthly and yearly plans. Select any package to send an enquiry with your chosen plan pre-filled.</p>
+    </div>
+    <div class="pricing-tabs" role="tablist" aria-label="Pricing period">
+      <button class="tab active" data-period="weekly" role="tab" aria-selected="true">Weekly</button>
+      <button class="tab" data-period="monthly" role="tab" aria-selected="false">Monthly</button>
+      <button class="tab" data-period="yearly" role="tab" aria-selected="false">Yearly</button>
+    </div>
+    <p class="pricing-note" id="pricingNote">Flexible short-term creative support · Sample prices in USD</p>
+    <div class="pricing-grid" id="pricingGrid"></div>
+    <p class="custom-note">Need something different? <a href="#contact" class="gold">Request a custom package ↗</a></p>
+  </div>
 </section>
 
-
-<!-- =========================================================
-     PROCESS
-     ========================================================= -->
-
-<section id="process">
-
-<div class="container">
-
-<div class="section-head reveal">
-
-<small>Our Process</small>
-
-<h2>
-    Simple. Clear. Professional.
-</h2>
-
-<p>
-    We make the entire creative process easy for you.
-</p>
-
-</div>
-
-
-<div class="process-grid">
-
-
-<div class="process-card reveal">
-
-<div class="process-number">01</div>
-
-<h3>Discovery</h3>
-
-<p>
-    We understand your business, audience,
-    competitors and goals.
-</p>
-
-</div>
-
-
-<div class="process-card reveal">
-
-<div class="process-number">02</div>
-
-<h3>Strategy</h3>
-
-<p>
-    We create a creative direction that fits
-    your brand and target audience.
-</p>
-
-</div>
-
-
-<div class="process-card reveal">
-
-<div class="process-number">03</div>
-
-<h3>Design</h3>
-
-<p>
-    Our team creates professional and
-    high-quality creative work.
-</p>
-
-</div>
-
-
-<div class="process-card reveal">
-
-<div class="process-number">04</div>
-
-<h3>Delivery</h3>
-
-<p>
-    Final files are delivered ready for
-    business, web and social media use.
-</p>
-
-</div>
-
-
-</div>
-
-</div>
-
+<section class="section" id="portfolio">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Selected creative directions</span>
+      <h2>Ideas That Become <span class="gold">Visual Stories.</span></h2>
+      <p>Explore sample portfolio categories. Replace these illustrative tiles with your real client work and approved project images.</p>
+    </div>
+    <div class="portfolio-grid">
+      <article class="portfolio-card"><div class="portfolio-visual">✦</div><div class="portfolio-info"><small>01 · BRAND IDENTITY</small><h3>Luxury Brand Identity</h3></div></article>
+      <article class="portfolio-card"><div class="portfolio-visual">◈</div><div class="portfolio-info"><small>02 · SOCIAL MEDIA</small><h3>Social Campaign Creative</h3></div></article>
+      <article class="portfolio-card"><div class="portfolio-visual">▷</div><div class="portfolio-info"><small>03 · VIDEO</small><h3>Short-Form Video Content</h3></div></article>
+      <article class="portfolio-card"><div class="portfolio-visual">❋</div><div class="portfolio-info"><small>04 · INVITATIONS</small><h3>Wedding Invitation Suite</h3></div></article>
+      <article class="portfolio-card"><div class="portfolio-visual">⌘</div><div class="portfolio-info"><small>05 · DIGITAL DESIGN</small><h3>Website & Landing Page</h3></div></article>
+      <article class="portfolio-card"><div class="portfolio-visual">▣</div><div class="portfolio-info"><small>06 · ECOMMERCE</small><h3>Shopify Store Experience</h3></div></article>
+    </div>
+  </div>
 </section>
 
-
-<!-- =========================================================
-     PRICING
-     ========================================================= -->
-
-<section class="pricing" id="pricing">
-
-<div class="container">
-
-<div class="section-head reveal">
-
-<small>Pricing</small>
-
-<h2>
-    Packages For Every Business
-</h2>
-
-<p>
-    Start small or choose a complete creative solution.
-</p>
-
-</div>
-
-
-<div class="price-grid">
-
-
-<div class="price-card reveal">
-
-<h3>Starter</h3>
-
-<div class="price">
-    $99 <small>/ project</small>
-</div>
-
-<p>
-    Perfect for small businesses.
-</p>
-
-<ul class="price-list">
-
-<li>Professional Logo</li>
-<li>2 Logo Concepts</li>
-<li>PNG + JPG Files</li>
-<li>Social Media Profile</li>
-<li>3 Revisions</li>
-
-</ul>
-
-<a href="#contact" class="btn btn-outline">
-    Choose Starter
-</a>
-
-</div>
-
-
-<div class="price-card popular reveal">
-
-<div class="popular-tag">
-    MOST POPULAR
-</div>
-
-<h3>Business</h3>
-
-<div class="price">
-    $299 <small>/ project</small>
-</div>
-
-<p>
-    Perfect for growing businesses.
-</p>
-
-<ul class="price-list">
-
-<li>Complete Logo Design</li>
-<li>Brand Identity</li>
-<li>Business Website</li>
-<li>Social Media Design</li>
-<li>Source Files</li>
-<li>Multiple Revisions</li>
-
-</ul>
-
-<a href="#contact" class="btn btn-primary">
-    Choose Business
-</a>
-
-</div>
-
-
-<div class="price-card reveal">
-
-<h3>Premium</h3>
-
-<div class="price">
-    $599+ <small>/ project</small>
-</div>
-
-<p>
-    Complete digital brand solution.
-</p>
-
-<ul class="price-list">
-
-<li>Premium Brand Identity</li>
-<li>Professional Website</li>
-<li>E-Commerce Design</li>
-<li>Social Media Kit</li>
-<li>Video Editing</li>
-<li>Marketing Creatives</li>
-
-</ul>
-
-<a href="#contact" class="btn btn-outline">
-    Choose Premium
-</a>
-
-</div>
-
-
-</div>
-
-</div>
-
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">How it works</span>
+      <h2>A Clear Process. <span class="gold">Creative Results.</span></h2>
+      <p>From the first message to final delivery, your project follows a straightforward workflow.</p>
+    </div>
+    <div class="process-grid">
+      <article class="process-card"><div class="process-number">01</div><h3>Tell Us Your Idea</h3><p>Share your goals, references, audience and requirements.</p></article>
+      <article class="process-card"><div class="process-number">02</div><h3>Choose a Package</h3><p>Confirm the scope, price, deliverables and timeline.</p></article>
+      <article class="process-card"><div class="process-number">03</div><h3>We Create</h3><p>We develop your creative work and collect your feedback.</p></article>
+      <article class="process-card"><div class="process-number">04</div><h3>Final Delivery</h3><p>Receive the agreed files after approval and payment terms.</p></article>
+    </div>
+  </div>
 </section>
 
-
-<!-- =========================================================
-     TESTIMONIALS
-     ========================================================= -->
-
-<section>
-
-<div class="container">
-
-<div class="section-head reveal">
-
-<small>Client Reviews</small>
-
-<h2>
-    What Clients Say
-</h2>
-
-<p>
-    Professional creative work that helps businesses
-    look better and grow online.
-</p>
-
-</div>
-
-
-<div class="testimonial-grid">
-
-
-<div class="testimonial reveal">
-
-<div class="stars">
-★★★★★
-</div>
-
-<p>
-"Excellent branding work. The final design looked
-much more professional than we expected."
-</p>
-
-<div class="client">
-Michael R.
-<span>USA Business Owner</span>
-</div>
-
-</div>
-
-
-<div class="testimonial reveal">
-
-<div class="stars">
-★★★★★
-</div>
-
-<p>
-"Our website and social media graphics completely
-changed the way our business looks online."
-</p>
-
-<div class="client">
-James W.
-<span>UK E-Commerce Owner</span>
-</div>
-
-</div>
-
-
-<div class="testimonial reveal">
-
-<div class="stars">
-★★★★★
-</div>
-
-<p>
-"Very professional communication and creative
-design. Highly recommended."
-</p>
-
-<div class="client">
-Sarah M.
-<span>USA Entrepreneur</span>
-</div>
-
-</div>
-
-
-</div>
-
-</div>
-
+<section class="section" id="about">
+  <div class="container about-grid">
+    <div class="about-panel"><span>ACS</span></div>
+    <div class="about-copy">
+      <span class="eyebrow">Meet your creative partner</span>
+      <h2 class="section-title">Good Design Is More Than <span class="gold">Looks.</span></h2>
+      <p>Apni Creative Studio helps businesses, creators and entrepreneurs present their ideas with confidence. From the first logo to a complete digital storefront, our goal is to keep your brand clear, consistent and memorable.</p>
+      <p>Whether you need a single design or ongoing creative support, we can discuss a solution that suits your goals and budget.</p>
+      <div class="about-points">
+        <span>Brand-conscious design</span><span>Platform-ready creative assets</span>
+        <span>Flexible service options</span><span>Clear project communication</span>
+      </div>
+      <div style="margin-top:25px"><a class="btn btn-primary" href="#contact">Discuss Your Project ↗</a></div>
+    </div>
+  </div>
 </section>
 
-
-<!-- =========================================================
-     FAQ
-     ========================================================= -->
-
-<section>
-
-<div class="container">
-
-<div class="section-head reveal">
-
-<small>FAQ</small>
-
-<h2>
-    Frequently Asked Questions
-</h2>
-
-</div>
-
-
-<div class="faq">
-
-
-<details class="reveal">
-
-<summary>
-How can I start a project?
-</summary>
-
-<p>
-Simply send us a WhatsApp message or use the project
-form below. Tell us what you need and we will discuss
-your project with you.
-</p>
-
-</details>
-
-
-<details class="reveal">
-
-<summary>
-Do you work with USA and UK clients?
-</summary>
-
-<p>
-Yes. HOK Creative Studio is focused on helping
-businesses, brands and online stores in USA and UK markets.
-</p>
-
-</details>
-
-
-<details class="reveal">
-
-<summary>
-Can you create a complete brand?
-</summary>
-
-<p>
-Yes. We can create your logo, brand identity, website,
-social media graphics, marketing creatives and other
-digital assets.
-</p>
-
-</details>
-
-
-<details class="reveal">
-
-<summary>
-Can you design e-commerce stores?
-</summary>
-
-<p>
-Yes. We can help with Shopify, product graphics,
-banners, landing pages, product listings and other
-e-commerce design requirements.
-</p>
-
-</details>
-
-
-<details class="reveal">
-
-<summary>
-Can you edit promotional videos?
-</summary>
-
-<p>
-Yes. We can create reels, shorts, advertisements,
-product videos, YouTube videos and promotional content.
-</p>
-
-</details>
-
-
-</div>
-
-</div>
-
+<section class="section" id="faq">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Frequently asked questions</span>
+      <h2>Good to <span class="gold">Know.</span></h2>
+    </div>
+    <div class="faq-list">
+      <details><summary>How do I order a service?</summary><p>Select a service or pricing package, fill in the enquiry form and send your request through email or WhatsApp. We will confirm scope, availability and next steps.</p></details>
+      <details><summary>Are the listed prices final?</summary><p>No. Prices on this starter website are illustrative examples in USD, not a binding quote. The final price depends on scope, quantity, complexity, revisions and delivery time.</p></details>
+      <details><summary>Can I request a custom package?</summary><p>Yes. Describe the services and deliverables you need in the enquiry form. A custom scope can be discussed before the project starts.</p></details>
+      <details><summary>Do you design websites and Shopify stores?</summary><p>Yes, website design and Shopify storefront design are included in the service list. Platform access, subscriptions, paid themes, apps and development integrations may be separate costs.</p></details>
+      <details><summary>How do revisions and delivery work?</summary><p>Revision limits, delivery timelines and included file formats should be agreed in writing before work begins. They depend on the chosen project scope.</p></details>
+      <details><summary>Can I pay directly on this website?</summary><p>This version does not collect payments. Payment processing requires a configured payment provider and a secure backend or hosted checkout integration.</p></details>
+    </div>
+  </div>
 </section>
 
-
-<!-- =========================================================
-     CONTACT
-     ========================================================= -->
-
-<section class="contact" id="contact">
-
-<div class="container">
-
-<div class="contact-wrap">
-
-<div class="section-head reveal">
-
-<small>Let's Work Together</small>
-
-<h2>
-    Have A Project In Mind?
-</h2>
-
-<p>
-    Tell us about your business and project.
-    We will get back to you as soon as possible.
-</p>
-
-</div>
-
-
-<form class="contact-form reveal" id="contactForm">
-
-
-<div class="form-row">
-
-<input
-    type="text"
-    id="name"
-    placeholder="Your Name"
-    required
->
-
-<input
-    type="email"
-    id="email"
-    placeholder="Your Email"
-    required
->
-
-</div>
-
-
-<input
-    type="text"
-    id="business"
-    placeholder="Business / Company Name"
->
-
-
-<select id="service" required>
-
-<option value="">
-Select Your Service
-</option>
-
-<option>Logo & Brand Identity</option>
-<option>Website Design</option>
-<option>Social Media Design</option>
-<option>Video Editing</option>
-<option>E-Commerce Design</option>
-<option>YouTube Design</option>
-<option>Facebook Design</option>
-<option>Digital Marketing Creative</option>
-<option>Complete Business Branding</option>
-
-</select>
-
-
-<textarea
-    id="message"
-    placeholder="Tell us about your project..."
-    required
-></textarea>
-
-
-<button
-    type="submit"
-    class="btn btn-primary"
->
-    Send Project Request →
-</button>
-
-
-<div class="form-message" id="formMessage">
-    Thank you! Your enquiry is ready to send.
-</div>
-
-
-</form>
-
-</div>
-
-</div>
-
+<section class="section" id="contact">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Let's create something great</span>
+      <h2>Tell Us About Your <span class="gold">Project.</span></h2>
+      <p>Fill in the details below. You can submit your enquiry by email or open a prepared WhatsApp message.</p>
+    </div>
+    <div class="contact-grid">
+      <aside class="contact-info">
+        <h3>Let's Talk Creative.</h3>
+        <p>Have a question about a design, content package or website project? Share a few details and let's discuss your next step.</p>
+        <div class="contact-item"><strong>EMAIL</strong><span id="displayEmail">hello@yourdomain.com</span></div>
+        <div class="contact-item"><strong>WHATSAPP</strong><span>Quick project enquiries</span></div>
+        <div class="contact-item"><strong>SERVICES</strong><span>Design · Social Media · Video · Web · Shopify</span></div>
+        <div style="margin-top:22px"><a class="btn" id="contactWhatsApp" href="#" target="_blank" rel="noopener">Message on WhatsApp ↗</a></div>
+      </aside>
+      <div class="form-panel">
+        <h3>Project Enquiry</h3>
+        <form id="orderForm">
+          <div class="form-grid">
+            <div class="field"><label for="name">Your name *</label><input id="name" name="name" required placeholder="Full name" autocomplete="name"></div>
+            <div class="field"><label for="email">Email address *</label><input id="email" name="email" type="email" required placeholder="you@example.com" autocomplete="email"></div>
+            <div class="field"><label for="service">Service *</label>
+              <select id="service" name="service" required>
+                <option value="">Choose a service</option>
+                <option>Logo Design & Branding</option><option>Graphic Design</option>
+                <option>Facebook Design</option><option>Instagram Content</option>
+                <option>YouTube Design</option><option>TikTok Creative Content</option>
+                <option>Wedding & Invitation Cards</option><option>Business Cards</option>
+                <option>Product & Packaging Design</option><option>Video Editing</option>
+                <option>Ads & Ad Creatives</option><option>Website Design</option>
+                <option>Shopify Store Design</option><option>Profile & Channel Branding</option>
+                <option>Print & Marketing Materials</option><option>Custom / Multiple Services</option>
+              </select>
+            </div>
+            <div class="field"><label for="plan">Pricing plan</label>
+              <select id="plan" name="plan"><option value="Custom quote">Custom quote</option><option>Weekly Starter</option><option>Weekly Growth</option><option>Weekly Premium</option><option>Monthly Starter</option><option>Monthly Growth</option><option>Monthly Premium</option><option>Yearly Starter</option><option>Yearly Growth</option><option>Yearly Premium</option></select>
+            </div>
+            <div class="field full"><label for="budget">Estimated budget (USD)</label>
+              <select id="budget" name="budget"><option value="Not sure yet">Not sure yet</option><option>Under $100</option><option>$100–$300</option><option>$300–$750</option><option>$750–$1,500</option><option>$1,500+</option></select>
+            </div>
+            <div class="field full"><label for="message">Project details *</label><textarea id="message" name="message" required placeholder="Tell us what you need, quantities, platforms, preferred timeline and any references..."></textarea></div>
+          </div>
+          <button class="btn btn-primary form-submit" type="submit">Prepare My Enquiry ↗</button>
+          <p class="form-hint">Choose email or WhatsApp after submitting. No payment is taken by this form.</p>
+          <div id="formActions" hidden style="display:flex;gap:10px;flex-wrap:wrap;margin-top:15px">
+            <button type="button" class="btn btn-small" id="sendEmail">Continue by Email</button>
+            <button type="button" class="btn btn-small" id="sendWhatsApp">Continue on WhatsApp</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
 </section>
-
-
-<!-- =========================================================
-     FOOTER
-     ========================================================= -->
+</main>
 
 <footer>
-
-<div class="container">
-
-<div class="footer-grid">
-
-
-<div>
-
-<div class="footer-logo">
-HOK<span>.</span>
-</div>
-
-<p>
-HOK Creative Studio helps businesses build
-professional brands, websites, social media
-content and digital experiences.
-</p>
-
-
-<div class="socials">
-
-<a href="#" class="social" title="Instagram">
-IG
-</a>
-
-<a href="#" class="social" title="Facebook">
-FB
-</a>
-
-<a href="#" class="social" title="TikTok">
-TK
-</a>
-
-<a href="#" class="social" title="YouTube">
-YT
-</a>
-
-</div>
-
-</div>
-
-
-<div>
-
-<h3>Company</h3>
-
-<div class="footer-links">
-
-<a href="#home">Home</a>
-<a href="#about">About</a>
-<a href="#portfolio">Portfolio</a>
-<a href="#pricing">Pricing</a>
-
-</div>
-
-</div>
-
-
-<div>
-
-<h3>Services</h3>
-
-<div class="footer-links">
-
-<a href="#services">Logo Design</a>
-<a href="#services">Website Design</a>
-<a href="#services">Social Media</a>
-<a href="#services">Video Editing</a>
-<a href="#services">E-Commerce</a>
-
-</div>
-
-</div>
-
-
-<div>
-
-<h3>Contact</h3>
-
-<div class="footer-links">
-
-<a href="mailto:hello@hokcreative.studio">
-hello@hokcreative.studio
-</a>
-
-<a href="https://wa.me/923000000000" target="_blank">
-WhatsApp
-</a>
-
-<a href="#contact">
-Start Project
-</a>
-
-</div>
-
-</div>
-
-
-</div>
-
-
-<div class="copyright">
-
-<span>
-© <span id="year"></span> HOK Creative Studio. All Rights Reserved.
-</span>
-
-<span>
-USA • UK • Worldwide
-</span>
-
-</div>
-
-</div>
-
+  <div class="container footer-inner">
+    <a class="brand" href="#home"><span class="brand-mark">ACS</span><span class="brand-name">APNI CREATIVE STUDIO<small>DESIGN · CREATE · GROW</small></span></a>
+    <p class="footer-copy">© <span id="year"></span> Apni Creative Studio. All rights reserved.</p>
+    <div class="footer-links"><a href="#services">Services</a><a href="#pricing">Pricing</a><a href="#portfolio">Portfolio</a><a href="#contact">Contact</a></div>
+  </div>
 </footer>
 
-
-<!-- =========================================================
-     WHATSAPP BUTTON
-     ========================================================= -->
-
-<a
-    href="https://wa.me/923000000000"
-    target="_blank"
-    class="whatsapp"
-    title="Chat on WhatsApp"
->
-    ☎
-</a>
-
-
-<!-- =========================================================
-     BACK TO TOP
-     ========================================================= -->
-
-<div class="top" id="top">
-    ↑
-</div>
-
-
-<!-- =========================================================
-     JAVASCRIPT
-     ========================================================= -->
+<a class="whatsapp" id="floatingWhatsApp" href="#" target="_blank" rel="noopener" aria-label="Chat with us on WhatsApp" title="Chat on WhatsApp">☏</a>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
 
 <script>
+/* ==========================================================
+   APNI CREATIVE STUDIO — WEBSITE SETTINGS
+   Replace these sample contact details with your real details.
+   WhatsApp format: country code + number, digits only.
+   Example format: 15551234567 (do not include +, spaces or dashes).
+   ========================================================== */
+const ACS_CONFIG = {
+  whatsapp: "+923415405005",
+  email: "hello@yourdomain.com"
+};
 
-/* ================= LOADER ================= */
+/* Sample pricing in USD. Adjust these amounts and deliverables
+   before publishing. The website does not charge these amounts. */
+const PRICING = {
+  weekly: {
+    note: "Flexible short-term creative support · Sample prices in USD",
+    plans: [
+      {name:"Starter",price:49,desc:"For a focused creative task or a small batch.",features:["Up to 3 simple design assets","1 selected service","2 revision rounds","Web-ready file delivery","Agreed project timeline"],featured:false},
+      {name:"Growth",price:99,desc:"For brands that need consistent weekly content.",features:["Up to 8 design assets","Choose from listed services","2 revision rounds per item","Consistent visual direction","Priority project discussion"],featured:true},
+      {name:"Premium",price:199,desc:"For broader weekly creative support.",features:["Up to 15 design assets","Multiple agreed creative tasks","2 revision rounds per item","Brand-consistent deliverables","Dedicated project coordination"],featured:false}
+    ]
+  },
+  monthly: {
+    note: "Ongoing creative support · Sample prices in USD",
+    plans: [
+      {name:"Starter",price:149,desc:"A simple monthly creative foundation.",features:["Up to 10 design assets monthly","One primary service","2 revision rounds per item","Web-ready file delivery","Monthly content coordination"],featured:false},
+      {name:"Growth",price:299,desc:"For growing brands and active channels.",features:["Up to 25 design assets monthly","Up to 2 agreed service types","2 revision rounds per item","Consistent brand styling","Priority communication"],featured:true},
+      {name:"Premium",price:599,desc:"Expanded monthly creative partnership.",features:["Up to 50 design assets monthly","Multiple agreed service types","2 revision rounds per item","Campaign creative coordination","Dedicated project communication"],featured:false}
+    ]
+  },
+  yearly: {
+    note: "Long-term creative partnership · Sample prices in USD",
+    plans: [
+      {name:"Starter",price:1490,desc:"A year of foundational creative support.",features:["Up to 10 design assets per month","One primary service","Monthly planning","2 revision rounds per item","Agreed annual scope"],featured:false},
+      {name:"Growth",price:2990,desc:"Ongoing creative support for growing brands.",features:["Up to 25 design assets per month","Up to 2 agreed service types","Monthly planning","2 revision rounds per item","Agreed annual scope"],featured:true},
+      {name:"Premium",price:5990,desc:"A broader annual creative partnership.",features:["Up to 50 design assets per month","Multiple agreed service types","Campaign planning","2 revision rounds per item","Agreed annual scope"],featured:false}
+    ]
+  }
+};
+ 
+const money = n => new Intl.NumberFormat("en-US",{
+  style:"currency",currency:"USD",maximumFractionDigits:0
+}).format(n);
 
-window.addEventListener("load",function(){
+let currentPeriod = "weekly";
+let lastEnquiry = null;
 
-    setTimeout(function(){
-
-        document.getElementById("loader")
-        .classList.add("hide");
-
-    },700);
-
-});
-
-
-/* ================= MOBILE MENU ================= */
-
-const menu =
-document.getElementById("menu");
-
-const navLinks =
-document.getElementById("navLinks");
-
-menu.addEventListener("click",function(){
-
-    navLinks.classList.toggle("active");
-
-});
-
-
-document.querySelectorAll(".nav-links a")
-.forEach(function(link){
-
-    link.addEventListener("click",function(){
-
-        navLinks.classList.remove("active");
-
-    });
-
-});
-
-
-/* ================= YEAR ================= */
-
-document.getElementById("year")
-.innerText =
-new Date().getFullYear();
-
-
-/* ================= SCROLL REVEAL ================= */
-
-const revealElements =
-document.querySelectorAll(".reveal");
-
-function reveal(){
-
-    revealElements.forEach(function(element){
-
-        const windowHeight =
-        window.innerHeight;
-
-        const elementTop =
-        element.getBoundingClientRect().top;
-
-        if(elementTop < windowHeight - 80){
-
-            element.classList.add("active");
-
-        }
-
-    });
-
+function showToast(message){
+  const toast = document.getElementById("toast");
+  toast.textContent = message;
+  toast.classList.add("show");
+  clearTimeout(showToast.timer);
+  showToast.timer = setTimeout(()=>toast.classList.remove("show"),3200);
 }
 
-window.addEventListener("scroll",reveal);
-
-reveal();
-
-
-/* ================= BACK TO TOP ================= */
-
-const topButton =
-document.getElementById("top");
-
-window.addEventListener("scroll",function(){
-
-    if(window.scrollY > 500){
-
-        topButton.classList.add("show");
-
-    }else{
-
-        topButton.classList.remove("show");
-
-    }
-
-});
-
-
-topButton.addEventListener("click",function(){
-
-    window.scrollTo({
-        top:0,
-        behavior:"smooth"
+function renderPricing(period){
+  currentPeriod = period;
+  const data = PRICING[period];
+  document.getElementById("pricingNote").textContent = data.note;
+  document.querySelectorAll(".tab").forEach(tab=>{
+    const active = tab.dataset.period === period;
+    tab.classList.toggle("active",active);
+    tab.setAttribute("aria-selected",String(active));
+  });
+  const grid = document.getElementById("pricingGrid");
+  grid.innerHTML = data.plans.map(plan=>{
+    const planName = period.charAt(0).toUpperCase()+period.slice(1)+" "+plan.name;
+    return `
+      <article class="price-card ${plan.featured ? "featured":""}">
+        ${plan.featured ? '<span class="popular">MOST POPULAR</span>':""}
+        <h3>${plan.name}</h3>
+        <p class="desc">${plan.desc}</p>
+        <div class="price">${money(plan.price)}<small> / ${period.replace("ly","").replace("month","month")}</small></div>
+        <ul>${plan.features.map(feature=>`<li>${feature}</li>`).join("")}</ul>
+        <button class="btn ${plan.featured?"btn-primary":""} choose-plan" data-plan="${planName}">Choose ${plan.name} ↗</button>
+      </article>`;
+  }).join("");
+  grid.querySelectorAll(".choose-plan").forEach(button=>{
+    button.addEventListener("click",()=>{
+      const plan = button.dataset.plan;
+      document.getElementById("plan").value = plan;
+      document.getElementById("contact").scrollIntoView({behavior:"smooth"});
+      showToast(plan+" selected. Complete the enquiry form below.");
     });
+  });
+}
+document.querySelectorAll(".tab").forEach(tab=>{
+  tab.addEventListener("click",()=>renderPricing(tab.dataset.period));
+});
+renderPricing("weekly");
 
+const menuToggle = document.getElementById("menuToggle");
+const navLinks = document.getElementById("navLinks");
+menuToggle.addEventListener("click",()=>{
+  const open = navLinks.classList.toggle("open");
+  menuToggle.setAttribute("aria-expanded",String(open));
+  menuToggle.textContent = open ? "✕ Close" : "☰ Menu";
+});
+navLinks.querySelectorAll("a").forEach(link=>{
+  link.addEventListener("click",()=>{
+    navLinks.classList.remove("open");
+    menuToggle.setAttribute("aria-expanded","false");
+    menuToggle.textContent = "☰ Menu";
+  });
 });
 
-
-/* ================= CONTACT FORM ================= */
-
-document
-.getElementById("contactForm")
-.addEventListener("submit",function(event){
-
-    event.preventDefault();
-
-    const name =
-    document.getElementById("name").value;
-
-    const email =
-    document.getElementById("email").value;
-
-    const business =
-    document.getElementById("business").value;
-
-    const service =
-    document.getElementById("service").value;
-
-    const message =
-    document.getElementById("message").value;
-
-
-    const subject =
-    encodeURIComponent(
-        "New Project Request - HOK Creative Studio"
-    );
-
-
-    const body =
-    encodeURIComponent(
-
-        "Name: " + name +
-
-        "\nEmail: " + email +
-
-        "\nBusiness: " + business +
-
-        "\nService: " + service +
-
-        "\n\nProject Details:\n" +
-
-        message
-
-    );
-
-
-    /* CHANGE THIS EMAIL TO YOUR REAL EMAIL */
-
-    window.location.href =
-    "mailto:hello@hokcreative.studio" +
-    "?subject=" +
-    subject +
-    "&body=" +
-    body;
-
-
-    document
-    .getElementById("formMessage")
-    .style.display="block";
-
+document.querySelectorAll(".order-service").forEach(link=>{
+  link.addEventListener("click",()=>{
+    document.getElementById("service").value = link.dataset.service;
+  });
 });
 
+function cleanWhatsAppNumber(value){
+  return String(value || "").replace(/\D/g,"");
+}
+function whatsappUrl(message="Hello Apni Creative Studio! I'd like to enquire about your creative services."){
+  const number = cleanWhatsAppNumber(ACS_CONFIG.whatsapp);
+  if(!number || number.length < 8 || number === "+923415405005") return "";
+  return "https://wa.me/"+number+"?text="+encodeURIComponent(message);
+}
+function updateWhatsAppLinks(){
+  const url = whatsappUrl();
+  ["floatingWhatsApp","contactWhatsApp"].forEach(id=>{
+    const link = document.getElementById(id);
+    link.href = url || "#contact";
+    link.onclick = url ? null : (event)=>{
+      event.preventDefault();
+      showToast("+923415405005");
+    };
+  });
+}
+updateWhatsAppLinks();
 
-/* ================= ESC KEY MENU ================= */
+function getEnquiryMessage(){
+  if(!lastEnquiry) return "";
+  return [
+    "APNI CREATIVE STUDIO — PROJECT ENQUIRY",
+    "",
+    "Name: "+lastEnquiry.name,
+    "Email: "+lastEnquiry.email,
+    "Service: "+lastEnquiry.service,
+    "Plan: "+lastEnquiry.plan,
+    "Budget: "+lastEnquiry.budget,
+    "",
+    "Project details:",
+    lastEnquiry.message
+  ].join("\n");
+}
 
-document.addEventListener("keydown",function(event){
-
-    if(event.key === "Escape"){
-
-        navLinks.classList.remove("active");
-
-    }
-
+document.getElementById("orderForm").addEventListener("submit",event=>{
+  event.preventDefault();
+  const form = event.currentTarget;
+  if(!form.reportValidity()) return;
+  const fd = new FormData(form);
+  lastEnquiry = Object.fromEntries(fd.entries());
+  document.getElementById("formActions").hidden = false;
+  showToast("Enquiry prepared. Choose email or WhatsApp to continue.");
 });
 
+document.getElementById("sendEmail").addEventListener("click",()=>{
+  const email = String(ACS_CONFIG.email || "").trim();
+  if(!email || email === "hello@yourdomain.com" || !email.includes("@")){
+    showToast("Please replace the sample email in ACS_CONFIG with your real email.");
+    return;
+  }
+  const subject = encodeURIComponent("ACS Project Enquiry — "+lastEnquiry.service);
+  const body = encodeURIComponent(getEnquiryMessage());
+  window.location.href = "mailto:"+email+"?subject="+subject+"&body="+body;
+});
+
+document.getElementById("sendWhatsApp").addEventListener("click",()=>{
+  const url = whatsappUrl(getEnquiryMessage());
+  if(!url){
+    showToast("+9234154005.");
+    return;
+  }
+  window.open(url,"_blank","noopener,noreferrer");
+});
+
+document.getElementById("displayEmail").textContent = ACS_CONFIG.email;
+document.getElementById("year").textContent = new Date().getFullYear();
 </script>
-
-
 </body>
 </html>
